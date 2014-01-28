@@ -1,0 +1,67 @@
+
+
+
+#pagina 
+{
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;             
+    
+	float:left;
+	width:1309px;
+	min-height: 250px;
+	height: auto;
+	height: 514px;
+	border: 4px solid #E10B00;
+	margin-left: 1px;
+	padding: 3px;
+	background-color: #F0F2F5;
+	vertical-align: top;
+	font-family:Arial;
+	font-size: 10pt;                               
+}	
+
+
+
+#contenedor 
+{
+	border: 0px;
+	float:center;
+	width:625px;
+}
+
+
+
+
+
+
+
+#paginas
+{
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;             
+    
+	float:left;
+	width:1309px;
+	min-height: 250px;
+	height: auto;
+	height: 514px;
+	border: 4px solid #E10B00;
+	margin-left: 1px;
+	padding: 3px;
+	background-color: #F0F2F5;
+	vertical-align: top;
+	font-family:Arial;
+	font-size: 10pt;                               
+}
+
+
+#contenedora
+{
+	border: 0px;
+	float:center;
+	width:1185px;
+}

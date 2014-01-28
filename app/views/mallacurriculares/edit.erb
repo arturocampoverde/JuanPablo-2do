@@ -1,0 +1,60 @@
+<%=form_tag  mallactual_path do %>
+<table> ESCOJA EL TIPO DE MALLA
+  <% @clase.each do |clase| %>
+<tr>
+<td>
+  <%if @mallas.clase_id == clase.id%>
+    <%= radio_button_tag(:clase, clase.id, checked = true, options = {:disabled => true})%><%= clase.tip_mall_descrip %>
+  <%else%>
+    <%= radio_button_tag(:clase, clase.id, checked = false, options = {:disabled => true})%> <%= clase.tip_mall_descrip %>
+  <%end%>
+</td>
+</tr>
+<% end %>
+</table>
+<br>
+
+
+<table> ESCOJA EL CURSO O NIVEL
+<% @nivel.each do |niv| %>
+<tr>
+<td> 
+  <%if @nivel_actual.id == niv.id%>
+    <%= radio_button_tag(:nivel, niv.id, true, options = {:disabled => true})%><%= niv.nivel_numero %>-<%=  niv.nivele.tip_niv_nombre %>
+  <%else%>
+    <%= radio_button_tag(:nivel, niv.id, false, options = {:disabled => true})%> <%= niv.nivel_numero %>-<%=  niv.nivele.tip_niv_nombre %>
+  <%end%>
+
+</td>
+</tr>
+<%end%>
+</table>
+<br>
+
+
+
+
+ ESCOJA LA ASIGNATURA
+  <table border="3" align="justify" >
+   <td> <%@asignatura.each do |asignatura|%>
+      <%msg="false"%>
+        <%@asig_actual.each do |asig|%>
+          <%if asig.id == asignatura.id%>
+            <%msg="true"%>
+            <%=check_box_tag("asignaturas[]", asignatura.id, checked = true)%><%=asignatura.asig_nombre%>
+            <%= hidden_field_tag "asig_actuals[]", asig.id %>
+          <%end%>
+      <%end%>
+      <%if msg == "false"%>
+        <%=check_box_tag("asignaturas[]", asignatura.id, checked = false)%><%=asignatura.asig_nombre%>
+      <%end%>
+    <%end%>
+  </td>   
+  </table>
+ <%= hidden_field_tag :nivel_actual, @nivel_actual.id %>
+ <%= hidden_field_tag :malla_actual, @mallas.id %>
+  <%#= @nivel_actual.id %>
+  <%#= @mallas.id %>
+ <%= submit_tag "GUARDAR" %>
+<%end%>
+ 

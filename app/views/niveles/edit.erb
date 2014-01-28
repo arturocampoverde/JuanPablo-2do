@@ -1,0 +1,15 @@
+<%=form_for @nivels do |f| %>
+  
+<p>
+  <%=f.label "NIVEL"%>
+  <%=f.text_field :nivel_numero %>
+</p>
+
+ 
+<p>
+  <%=f.label "DESCRIPCION"%>
+  <%=f.text_field :nivel_descrip %>
+</p>
+
+<%=  f.submit "GUARDAR" %>
+<%end%>

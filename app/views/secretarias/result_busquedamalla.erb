@@ -1,0 +1,40 @@
+<table border="3" align="center" width="500px">  
+  
+  <%if @mallas.nil?%>
+   
+     <h1><center> "DEBE INGRESAR LOS VALORES CORRECTOS PARA PROCEDER A LA BUSQUEDA" </center></h1>
+    
+  
+ <%else%> 
+  <% @mallas.each do |malla| %>
+        
+    <tr>
+      <td colspan="3" align="center"><h1>MALLA CREADA DESDE <font color ="#F72525"><%= malla.mall_fech_inic %></font> HASTA <font color ="#F72525"><%= malla.mall_fech_fin %></font></h1></td>
+    </tr>
+        
+    <tr>
+      <td><center><font color= "#E40F00">NIVEL</font></center></td>
+      <td><center><font color= "#E40F00">ASIGNATURAS</font></center></td>
+      <td><center><font color= "#E40F00">MALLA</font></center></td>       
+    </tr>
+            
+    <tr>    
+   <%malla.nivels.uniq.each do |n|%>
+      <td><%= n.nivel_numero %></td>                                
+      <td><%n.mults.uniq.each do |a|%>
+          <%if a.malla_id == malla.id%>
+            <font color= "#3300FF"><%= a.asignatura.asig_nombre%></font>
+          <%end%>          
+          <%end%>
+      </td>
+ 
+      <td><font color= "#008E2D"><%= malla.clase.tip_mall_descrip %></font></td>                 
+    </tr>
+   <%end%>
+  <% end %>
+    <input type=button name=print value="Imprimir" onClick="window.print()"><br><br>
+</table>
+
+
+<%end%>
+

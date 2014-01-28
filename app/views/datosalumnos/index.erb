@@ -1,0 +1,142 @@
+<div id="pagina" style="background-image: url(/assets/PAPAJUAN2232.jpg); height: 505px; width: 1300px; border: 1px solid black;">    
+<center><h3><font color ="#0015FF"> DATOS DEL ESTUDIANTE </font> </h3></center>
+<% @users.each do |f| %>
+<table>
+<div class="field">
+<b><font size="3">DATOS DE USUARIO</font></b>
+<p>
+<tr><td><font size="2">Nombre de Usuario:</font>
+<font color ="#0013E2" size="2"><%= f.username %></font></td></tr>
+</p>
+</div>
+
+<div class="field">
+<p>
+<tr><td><font size="2">Correo Eléctronico:</font>
+<font color ="#0013E2" size="2"><%= f.email %></font></td></tr>
+</p>
+</div>
+</table>
+<br>
+<%end%>
+
+
+<b><font size="3">DATOS PERSONALES</font></b>
+<% @person.each do |p| %>
+<table>
+<div class="field">
+<p>
+<tr><td><font size="2">Cédula:</font>
+<font color ="#0013E2" size="2"><%= p.pers_cedula %></font></td></tr>
+</p>
+</div>
+
+
+<div class="field">
+<p>
+<tr><td><font size="2">Nombres:</font>
+<font color ="#0013E2" size="2"><%= p.pers_nombre%></font></td></tr>
+</p>
+</div>
+
+
+
+<div class="field">
+<p>
+<tr><td><font size="2">Apellidos:</font>
+<font color ="#0013E2" size="2"><%= p.pers_apellido %></font></td></tr>
+</p>
+</div>
+
+
+<div class="field">
+<p>
+<tr><td><font size="2">Dirección:</font>
+<font color ="#0013E2" size="2"><%= p.pers_direccion %></font></td></tr>
+</p>
+</div>
+
+
+
+<div class="field">
+<p>
+<tr><td><font size="2">Tlf Convencional:</font>
+<font color ="#0013E2" size="2"><%= p.pers_telefono1 %></font></td></tr>
+</p>
+</div>
+
+
+<div class="field">
+<p>
+<tr><td><font size="2">Celular:</font>
+<font color ="#0013E2" size="2"><%= p.pers_telefono2 %></font></td></tr>
+</p>
+</div>
+</table>
+<%end%>
+<br>
+<b><font size="3">DATOS DEL REPRESENTANTE</font></b>
+<%#*<div class="field">%>
+<%#*<p><font size="4">Nombres:</font>%>
+  <%#*<font color ="#AA1D34" size="3">%>
+  <%#= p.pers_nombre%></p>
+  <%#*</font>%>
+<%#*</div>%>
+<% @repre.each do |p| %>
+<table>
+<div class="field">
+<p>
+<tr><td><font size="2">Cédula:</font>
+<font color ="#0013E2" size="2"><%= p.pers_cedula %></font></td></tr>
+</p>
+</div>
+
+
+<div class="field">
+<p>
+<tr><td><font size="2">Nombres:</font>
+<font color ="#0013E2" size="2"><%= p.pers_nombre%></font></td></tr>
+</p>
+</div>
+
+
+
+<div class="field">
+<p>
+<tr><td><font size="2">Apellidos:</font>
+<font color ="#0013E2" size="2"><%= p.pers_apellido %></font></td></tr>
+</p>
+</div>
+
+
+<div class="field">
+<p>
+<tr><td><font size="2">Dirección:</font>
+<font color ="#0013E2" size="2"><%= p.pers_direccion %></font></td></tr>
+</p>
+</div>
+
+
+
+<div class="field">
+<p>
+<tr><td><font size="2">Tlf Convencional:</font>
+<font color ="#0013E2" size="2"><%= p.pers_telefono1 %></font></td></tr>
+</p>
+</div>
+
+
+<div class="field">
+<p>
+<tr><td><font size="2">Celular:</font>
+<font color ="#0013E2" size="2"><%= p.pers_telefono2 %></font></td></tr>
+</p>
+</div>
+</table>
+<%end%>
+
+
+  
+
+</div>
+

@@ -1,0 +1,34 @@
+<table border="3" align="center" width="500px">
+  <thead>
+    <tr>
+      <td><center><font color= "#E40F00">NIVEL</font></center></td>
+      <td><center><font color= "#E40F00">ASIGNATURAS</font></center></td>
+      <td><center><font color= "#E40F00">MALLA</font></center></td>       
+    </tr>
+  </thead>
+  <% @mallas.each do |malla| %>
+    <tr>
+    <%#= malla.mult.collect { |detail| "NIVEL:#{detail.nivel.nivel_numero} ASIGNATURA:#{detail.asignatura.asig_nombre}" }.join("**** ") %></font></td>
+<%malla.nivels.uniq.each do |n|%>
+      <td><%= n.nivel_numero %></td>                         
+       
+      <%#*<td><%n.mults.uniq.each do |a|%>
+        
+      <td><%n.mults.uniq.each do |a|%>
+
+          <%if a.malla_id == malla.id%>
+            <font color= "#3300FF"><%= a.asignatura.asig_nombre%></font>
+          <%end%>
+          
+          <%end%>
+      </td>
+
+      <td><font color= "#008E2D"><%= malla.clase.tip_mall_descrip %></font></td>
+      
+
+      <td><font color ="#3300FF">  <%= link_to "EDITAR", edit_mallacurriculare_path(:id => n.id)%> </font> </td>
+      <td><%= link_to "ELIMINAR", malla_eliminar_path(:id => n.id, :malla_id => malla.id), :confirm => 'ESTAS SEGURISIMO ??'%></td>
+    </tr>
+   <%end%>
+  <% end %>
+</table>

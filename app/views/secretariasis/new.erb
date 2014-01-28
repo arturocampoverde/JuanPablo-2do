@@ -1,0 +1,48 @@
+<html>                           
+  <head>
+    <script type="text/javascript" src="../scripts/javascript.js"></script>    
+  </head>  
+  <body>       
+    <div id="pagina" style="background-image: url(/assets/popo10.jpg); height: 506px; width: 1300px; border: 1px solid black;"> 
+
+
+<h1><center>INGRESE SU CURRICULUM</center></h1>
+<%=form_for @estudio , :url => {:action=>"create"} do |f| %>
+  
+<table align="center">   
+<tr>
+  <td align="center"><font color="1038FF" SIZE="3">NIVELES</font></td>
+  <td align="center"><font color="1038FF" SIZE="3"> INSTITUTOS QUE HA ESTUDIADO</font> </td>
+  <td align="center"><font color="1038FF" SIZE="3"> TITULOS</font> </td>
+  <td align="center"><font color="1038FF" SIZE="3"> EXPERIENCIA LABORAL</font> </td>
+</tr>
+  
+  
+  
+ <tr> 
+<FONT color ="#2A6913"  SIZE="3" FACE="arial">  
+  <td><%=f.text_area :est_nivel, :rows => 10, :cols => 16 %></td>
+  <td><%=f.text_area :est_instituto, :rows => 15, :cols => 36 %></td>  
+  <td><%=f.text_area :est_titulos, :rows => 10, :cols => 16 %></td>
+</FONT>
+
+
+ 
+<%= fields_for :laboral do |f| %>          
+        <FONT color ="#2A6913"  SIZE="3" FACE="arial">            
+          <td><%= f.text_area :rel_lab_inst_nomb, :rows => 15, :cols => 36 %></td>
+        </FONT>
+ </table>
+<center><table><td><%=  f.submit "GUARDAR", {:style => 'color: #C31B1B'} %></td></table></center>
+<%end%>                                                   
+</tr>
+
+
+
+
+<%end%>
+
+
+</div>
+</body>
+</html>

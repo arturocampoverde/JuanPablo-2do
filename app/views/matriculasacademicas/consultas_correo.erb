@@ -1,0 +1,44 @@
+  <%=form_for :matriculasacademicas, :url => {:action=>""} do |f| %>
+
+<html>
+<body>  
+  <div id="pagina" style="background-image: url(/assets/pina1.jpg); height: 505px; width: 1300px; border: 1px solid black;">      
+       <div align="center">                                      
+      <p><font color="#10651A" SIZE="+1" FACE="elephant"><b>CUALQUIER DUDA QUE TENGA, POR FAVOR LLENE EL SIGUIENTE FORMULARIO:</b></font>
+      </p>
+      </div>            
+                        
+        <table BGCOLOR="#E5F4FF" align="CENTER" BORDERCOLOR="#00FDF9" WIDTH="280" HEIGHT="320" BORDER="10" CELLSPACING="2">                 
+        <body id="contacto"> 
+                      
+     <TR ALIGN="center">
+     <TD ALIGN="center"><font color="#1C2ACB" SIZE="+1" ><b><%=f.label "Nombres:"%></b></font></TD>
+     <TD><b></b><%=f.text_field :nombre %></TD>
+    </TR>
+              
+     <TR ALIGN="center">
+      <td ALIGN="center"><font color="#1C2ACB" SIZE="+1"><b><%=f.label "Apellidos:"%></b></font></td>
+     <TD><b></b><%=f.text_field :apellido %></TD>
+     </TR>
+          
+     <TR ALIGN="center">
+     <TD ALIGN="center"><font color="#1C2ACB" SIZE="+1"><b><%=f.label "Email:"%></b></font></TD>
+     <TD><b><%=f.text_field :email %></b></TD>    
+     </TR>
+              
+    <tr>    
+     <div>
+     <td> <font color="#1C2ACB" SIZE="+2"><b><%=f.label "Observación:"%></b></font></td></div>
+     <td><textarea name="comentarios" rows="17" cols="30"></textarea></td>    
+    </tr>                                       
+     
+     <tr>
+     <td colspan="3" ALIGN="center"><font SIZE="+2"><b><%=f.submit "ENVIAR", :style=> "color:#291EFF"%></b></font></td>
+     </tr>     
+          
+</table>
+     </div>
+      </body>                        
+      </html>
+
+            <%end%>

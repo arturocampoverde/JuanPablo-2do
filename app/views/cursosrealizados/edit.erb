@@ -1,0 +1,35 @@
+<h1><center>EDITE SU CURRICULUM</center></h1>
+
+<%=form_for @estudios do |f| %>
+   
+<table align="center"> 
+  
+<tr>
+  <td align="center"><font color="1038FF" SIZE="3"> NIVELES</font> </td>
+  <td align="center"><font color="1038FF" SIZE="3"> INSTITUTOS QUE HA ESTUDIADO</font> </td>
+  <td align="center"><font color="1038FF" SIZE="3"> TITULOS </font></td>
+  <td align="center"><font color="1038FF" SIZE="3"> EXPERIENCIA LABORAL </font></td>
+</tr>
+  
+  
+  
+ <tr> 
+<FONT color ="#2A6913"  SIZE="3" FACE="arial">  
+  <td><%=f.text_area :est_nivel, :rows => 10, :cols => 16 %></td>
+  <td><%=f.text_area :est_instituto, :rows => 15, :cols => 36 %></td>  
+  <td><%=f.text_area :est_titulos, :rows => 10, :cols => 16 %></td>
+</FONT>
+
+
+ 
+<%= form_for @laborals do |f| %>          
+        <FONT color ="#2A6913"  SIZE="3" FACE="arial">            
+          <td><%= f.text_area :rel_lab_inst_nomb, :rows => 15, :cols => 36 %></td>
+        </FONT>
+ </table>
+
+
+<center><table><td><%=  f.submit "GUARDAR CURRICULUM", {:style => 'color: #C31B1B'} %></td></table></center>
+<%end%>                                                   
+ </tr>      
+<%end%>

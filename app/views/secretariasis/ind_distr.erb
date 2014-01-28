@@ -1,0 +1,7 @@
+<h1><center>BUSCAR POR PERIODO LECTIVO</center></h1>
+<%= form_tag buscar_distributivos_path, :method => 'get' do %>
+<%= "Fecha de inicio (aaaa/mm/dd): " %><%= text_field_tag :fecha_inicio, nil, :class => "text_fecha_inicio", :id => "text_fecha_inicio", :style => "width:92px" %><br/>
+<%= "Fecha de fin (aaaa/mm/dd): " %><%= text_field_tag :fecha_fin, nil, :class => "text_fecha_fin", :id => "text_fecha_fin", :style => "width:92px" %>
+<%= submit_tag "Buscar" %>
+<%end%>
+

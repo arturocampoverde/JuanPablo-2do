@@ -1,0 +1,36 @@
+<html>
+<body>
+<script language="JavaScript" type="text/javascript" src="ajax.js"></script>
+
+<%=form_for @nivele , :url => {:action=>"create"} do |f| %>
+
+<font SIZE="5" FACE="arial" color ="#BF0000">Formulario Incorrecto</font>
+ 
+
+<div onkeypress="return isNumberKey(event)"> 
+<p>
+  <%=f.label "TIPO_NIVEL"%>
+  <%=f.text_field :tip_niv_nombre %>
+</p>
+</div> 
+
+<%=  f.submit "GUARDAR" %>
+
+
+
+   <% if @nivele.errors.any? %>
+            <div align="left">             
+                <ul><H1><font SIZE="4" FACE="arial" color ="#BF0000"> ERRORES</font></H1>      
+                  <% for message in @nivele.errors.full_messages %>                          
+                    <li><%= message %></li>
+                    <br> 
+                 <% end %>
+                </ul>              
+            </div>
+    <% end %>
+
+
+<%end%>
+
+</body>
+</html>

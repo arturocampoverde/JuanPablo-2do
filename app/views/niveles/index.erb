@@ -1,0 +1,14 @@
+<h1>CURSOS CREADOS EN RUBY ON RAILS!!!</h1>
+<% @nivel.each do |f| %>
+<p>
+<%=f.nivel_numero %> 
+<%=f.nivel_descrip %>****
+<%=f.nivele.tip_niv_nombre %>
+<%= link_to "EDITAR", edit_nivele_path(f) %>   
+<%= link_to "MOSTRAR", f %>  
+<%= link_to "ELIMINAR", f, :confirm => 'ESTAS SEGURISIMO ??', :method => :delete %>
+
+</p>
+<%end%>
+
+    

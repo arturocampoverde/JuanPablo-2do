@@ -1,0 +1,9 @@
+<%=form_for @niveles do |f| %>
+  
+<p>
+  <%=f.label "TIPO_NIVEL"%>
+  <%=f.text_field :tip_niv_nombre %>
+</p>
+
+<%=  f.submit "GUARDAR" %>
+<%end%>

@@ -1,0 +1,175 @@
+<script>
+  $(document).change(function() {
+    //variables para calcular promedio
+    var alumnos_arr = document.getElementsByClassName("alumnos_chepa");
+    var deberes_arr = document.getElementsByClassName("deberes_chepa");
+    var lecciones_arr = document.getElementsByClassName("lecciones_chepa");
+    var trabajos_arr = document.getElementsByClassName("trabajos_chepa");
+    var aportes_arr = document.getElementsByClassName("aportes_chepa");
+    var examenes_arr = document.getElementsByClassName("examenes_chepa");
+    var total_arr = document.getElementsByClassName("total_chepa");
+    var promedio_arr = document.getElementsByClassName("promedio_chepa");
+
+    //calcula promedio
+    function calcula_promedio(recorrido, iden, val1, val2, val3, val4, val5){
+      //$('#'+iden).val(val1);
+      //$('#'+iden_unit).val(valor2);
+      deberes_arr[recorrido].value = val1;
+      lecciones_arr[recorrido].value = val2;
+      trabajos_arr[recorrido].value = val3;
+      aportes_arr[recorrido].value = val4;
+      examenes_arr[recorrido].value = val5;
+      
+      total_arr[recorrido].value = parseFloat(deberes_arr[recorrido].value) + parseFloat(lecciones_arr[recorrido].value) + parseFloat(trabajos_arr[recorrido].value) + parseFloat(aportes_arr[recorrido].value) + parseFloat(examenes_arr[recorrido].value);
+      promedio_arr[recorrido].value = parseFloat(parseFloat(total_arr[recorrido].value)/5)
+    }
+
+    //PARA CALCULAR LA TABLA DE AVALUOS
+    for (var i = 0; i < alumnos_arr.length; i++) {
+      var current_deber_id = deberes_arr[i].id;
+      /*var current_actuacion_id = actuaciones_arr[i].id;
+      var current_leccion_id = lecciones_arr[i].id;
+      var current_examen_id = examenes_arr[i].id;*/
+      var deber = $('#'+deberes_arr[i].id).val();
+      var leccion = $('#'+lecciones_arr[i].id).val();
+      var trabajo = $('#'+trabajos_arr[i].id).val();
+      var aporte = $('#'+aportes_arr[i].id).val();
+      var examen = $('#'+examenes_arr[i].id).val();
+      //alert(deberes_arr[i].id)
+      
+      $('#'+deberes_arr[i].id).change({arr_rec: i, arr_id: current_deber_id, val1: deber, val2: leccion, val3: trabajo, val4: aporte, val5: examen},function(event) {
+        calcula_promedio(event.data.arr_rec, event.data.arr_id, $(this).val(), event.data.val2, event.data.val3, event.data.val4, event.data.val5);
+      });
+      
+      $('#'+lecciones_arr[i].id).change({arr_rec: i, arr_id: current_deber_id, val1: deber, val2: leccion, val3: trabajo, val4: aporte, val5: examen},function(event) {
+        calcula_promedio(event.data.arr_rec, event.data.arr_id, event.data.val1, $(this).val(), event.data.val3, event.data.val4, event.data.val5);
+      });
+      
+      $('#'+trabajos_arr[i].id).change({arr_rec: i, arr_id: current_deber_id, val1: deber, val2: leccion, val3: trabajo, val4: aporte, val5: examen},function(event) {
+        calcula_promedio(event.data.arr_rec, event.data.arr_id, event.data.val1, event.data.val2, $(this).val(), event.data.val4, event.data.val5);
+      });
+      
+      $('#'+aportes_arr[i].id).change({arr_rec: i, arr_id: current_deber_id, val1: deber, val2: leccion, val3: trabajo, val4: aporte, val5: examen},function(event) {
+        calcula_promedio(event.data.arr_rec, event.data.arr_id, event.data.val1, event.data.val2, event.data.val3, $(this).val(), event.data.val5);
+      });
+
+      $('#'+examenes_arr[i].id).change({arr_rec: i, arr_id: current_deber_id, val1: deber, val2: leccion, val3: trabajo, val4: aporte, val5: examen},function(event) {
+        calcula_promedio(event.data.arr_rec, event.data.arr_id, event.data.val1, event.data.val2, event.data.val3, event.data.val4, $(this).val());
+      });
+    }
+    
+   /* for (var i = 0; i < avaluos.length; i++) {
+      var nombre_avaluo = avaluos[i].textContent;
+      var current_area_id = areas[i].id;
+      var current_unit_id = unitarios[i].id;
+      var area = $('#'+areas[i].id).val();
+      $('#'+unitarios[i].id).change({arr_rec: i, nom: nombre_avaluo, val1: area, area_id: current_area_id, unitario_id: current_unit_id},function(event) {
+        actualiza_areas(event.data.area_id, event.data.unitario_id, event.data.arr_rec, event.data.val1, $(this).val());
+      });
+    }*/
+});
+</script>
+
+
+<%if @distributivo.persona_id == current_user.persona_id%>
+
+PEPO
+<html>
+<body>
+  <br/>
+   
+ <%= "Asignatura: " + @distributivo.asignatura.asig_nombre %>
+<br/>
+ <%= "Docente: " + @distributivo.persona.pers_nombre %> <%= @distributivo.persona.pers_apellido %>
+<br/>
+
+Nivel: <%= @distributivo.curso.nivel.nivel_numero%>  Paralelo: <%= @distributivo.curso.cur_paralelo%>
+  <table>
+    <tr align="center">
+      <td>Alumnos</td>
+      <td align="center">Deberes</td>
+      <td align="center">Lecciones</td>
+      <td align="center">Trabajos</td>
+      <td align="center">Aportes</td>
+      <td align="center">Examenes</td>
+      <td align="center">Total</td>
+      <td align="center">Promedio</td>
+      <td align="center">Conducta</td>
+    </tr>
+    <%=  form_tag cursosprofesores_path do%>
+      <%@alumnos.each do |a|%>
+        <tr align="center">
+          <td><%= label_tag a.pers_nombre + " " + a.pers_apellido, nil, :class=>"alumnos_chepa"%></td>
+          <td><%= text_field_tag "deber[]", 0, :class => "deberes_chepa", :id => "deberes_chepa_"+ "#{a.id}"%></td>
+          <td><%= text_field_tag "leccion[]", 0, :class => "lecciones_chepa", :id => "lecciones_chepa_"+ "#{a.id}"%></td>
+          <td><%= text_field_tag "trabajo[]", 0, :class => "trabajos_chepa", :id => "trabajos_chepa_"+ "#{a.id}"%></td>
+          <td><%= text_field_tag "aporte[]", 0, :class => "aportes_chepa", :id => "aportes_chepa_"+ "#{a.id}"%></td>
+          <td><%= text_field_tag "examen[]", 0, :class => "examenes_chepa", :id => "examenes_chepa_"+ "#{a.id}"%></td>
+          <td><%= text_field_tag "total[]", 0, :class => "total_chepa", :id => "total_chepa_"+ "#{a.id}", :readonly => "true"%></td>
+          <td><%= text_field_tag "promedio[]", 0, :class => "promedio_chepa", :id => "promedio_chepa_"+ "#{a.id}", :readonly => "true"%></td>
+          <td><%= text_field_tag "conducta[]", 0, :class => "conducta_chepa", :id => "conducta_chepa_"+ "#{a.id}"%></td>
+        </tr>
+      <%end%>
+        <%@matricula.each do |m| %>
+          <%= hidden_field_tag "matricula_ids[]", m.id %>
+        <%end%>
+        <%#@asignatura.each do |ass| %>
+          <%= hidden_field_tag :asignatura_id, @distributivo.asignatura.id %>
+        <%#end%>
+      <tr><td><%=  submit_tag "Guardar"%></td></tr>
+       <%= hidden_field_tag :contador_alumnos, @alumnos_count %>
+      <%= hidden_field_tag :distributivo_id, @distributivo.id %>
+    <%end%>
+  </table>
+<%= @alumnos_count %>
+
+
+<div align="center">
+  <br>
+  <br>
+  <br>
+  <br>
+ -------------------------------
+     <br>PROFESOR
+</div>
+
+<div align="center">
+  <br>
+  <br>
+  <br>
+ -------------------------------
+     <br>VICERRECTOR ACADÉMICO
+</div>
+<input type=button name=print value="Imprimir Lista de Estudiantes" onClick="window.print()"><br><br>
+</body>
+</html>
+
+<%else%>
+<!DOCTYPE html>
+<html> 
+<head>
+  <title>The page you were looking for doesn't exist (404)</title>
+  <style type="text/css">
+    body { background-color: #fff; color: #666; text-align: center; font-family: arial, sans-serif; }
+    div.dialog {
+      width: 25em;
+      padding: 0 4em;
+      margin: 4em auto 0 auto;
+      border: 1px solid #ccc;
+      border-right-color: #999;
+      border-bottom-color: #999;
+    }
+    h1 { font-size: 120%; color: #f00; line-height: 1.5em; }
+  </style>
+</head>
+
+<body>
+  <!-- This file lives in public/404.html -->
+  <div class="dialog">
+    <h1>LA PÁGINA A LA QUE QUIERES ACCEDER, NO EXISTE.</h1>
+    <p>ES POSIBLE QUE LA PÁGINA HAYA SIDO MOVIDA</p>
+  </div>
+</body>
+</html>
+
+<%end%>

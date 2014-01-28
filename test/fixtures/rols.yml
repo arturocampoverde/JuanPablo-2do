@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  rol_nombre: MyString
+  rol_observ: MyString
+
+two:
+  rol_nombre: MyString
+  rol_observ: MyString

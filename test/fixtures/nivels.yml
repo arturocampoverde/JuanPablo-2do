@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  nivel_numero: 
+  nivel_descrip: MyString
+
+two:
+  nivel_numero: 
+  nivel_descrip: MyString

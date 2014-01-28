@@ -1,0 +1,11 @@
+<% if @malla.errors.any? %>
+
+            <div align="left">             
+                <ul><H1><font SIZE="4" FACE="arial" color ="#BF0000"> ERRORES</font>      </H1>      
+                  <% for message in @malla.errors.full_messages %>                          
+                    <li><%= message %></li>
+                    <br> 
+                 <% end %>
+                </ul>              
+            </div>
+          <% end %>

@@ -1,0 +1,168 @@
+<html>   
+<body>
+  <head>
+
+  </head>  
+    
+    <table height="120" width="100" align="right">
+     <tr align="right"> 
+     </tr>
+    </table>  
+  
+  <div oncontextmenu='return false' ondragstart='return false' onmousedown='return false' onselectstart='return false'>
+    <div align="center">                                  
+      <p><font color="#1C2ACB" SIZE="6" FACE="algerian"><b>UNIDAD EDUCATIVA PARTICULAR MIXTA</b></font> <font color="#230000" SIZE="6" FACE="algerian"><b>"JUAN PABLO II"</b></font></p>
+    </div> 
+    <div align="center">                                  
+      <p><font color="#1C2ACB" SIZE="3" FACE="arial"><b>HOJA DE MATRICULA ACADÉMICA</b></font></p>
+    </div>   
+  </div>  
+  <br>
+  <br>
+
+
+<%= form_for @matricula , :url => {:action=>"create"} do |f| %>
+  
+ <fieldset class="step">
+  <legend><div oncontextmenu='return false' ondragstart='return false' onmousedown='return false' onselectstart='return false'></legend>
+<FONT color ="#2A6913"  SIZE="2" FACE="arial">  
+  </div>
+</FONT>
+</fieldset>
+
+          
+<div oncontextmenu='return false' ondragstart='return false' onmousedown='return false' onselectstart='return false'>  
+<fieldset class="step">
+        <legend><FONT color ="#0400E4"  SIZE="2" FACE="arial">NIVELES Y PARALELOS</FONT></legend>
+          <table border="1" align="justify" >
+          <tr> <% @curso.each do |curs| %>         
+                         
+                                                 <td><%=radio_button_tag :curso_id, curs.id%></td>
+       <font color ="#2A6913"  SIZE="2">         <td><%=  "Nivel:" %></td></font>
+                                                 <td><%= curs.nivel.nivel_numero %></td>
+                                                 <td><%= curs.nivel.nivele.tip_niv_nombre %></td>
+       <font color ="#2A6913"  SIZE="2">         <td><%= "Paralelo: " %></td></font>
+                                                 <td><%= curs.cur_paralelo %></td>
+       <font color ="#2A6913"  SIZE="2">         <td><%= "Cupos Disponibles:" %></td></font>
+                                                 <td><%= curs.cur_capac - Matricula.where(:curso_id => curs.id).count()%></td></tr>
+        <%end%> 
+           </table>
+</fieldset> 
+</div>
+
+
+<div oncontextmenu='return false' ondragstart='return false' onmousedown='return false' onselectstart='return false'>
+            <% @persona.each do |f| %>
+            <table width="400" border="5" >             
+           <br>
+           <tr>
+           <td colspan="3" height="30" bgcolor="#E2E2E2"><font color ="#4B4A55"><center>DATOS PERSONALES DEL ESTUDIANTE</center></font></td>
+           </tr>
+   
+            <tr>
+            <td height="30"><center><font color ="#2803FB"><%= "Cedula" %></font></td></center>
+            <td><center><%= f.pers_cedula %></td></center>
+            </tr>
+            
+            <tr>
+            <td height="30"><font color ="#2803FB"><center><%= "Nombres" %></font></td></center>
+            <td><center><%= f.pers_nombre %></td></center>         
+            </tr>            
+            
+            <tr>
+            <td height="30"><font color ="#2803FB"><center><%= "Apellidos" %></font></td></center>
+            <td><center><%= f.pers_apellido %></td></center>       
+            </tr>
+            
+            <tr>
+            <td height="30"><font color ="#2803FB"><center><%= "Direccion" %></font></td></center>
+            <td><center><%= f.pers_direccion %></td></center>        
+            </tr>
+            
+            <tr>
+            <td height="30"><font color ="#2803FB"><center><%= "Telefono Convencional" %></font></td></center>
+            <td><center><%= f.pers_telefono1 %></td></center>         
+            </tr>
+            
+            <tr>
+            <td height="30"><font color ="#2803FB"><center><%= "Telefono Celular" %></font></td></center>
+            <td><center><%= f.pers_telefono2 %></td></center>                       
+            </tr>
+            
+            <tr>
+            <td height="30"><font color ="#2803FB"><center><%= "Correo Electronico" %></font></td></center>
+            <td><center><%= f.pers_email %></td></center>
+            </tr>   
+            </table>      
+            <%end%>
+  
+<%@repre.each do |p| %>
+<table width="400" border="5">
+<tr>
+<td colspan="2" height="10" bgcolor="#E2E2E2"><font color ="#4B4A55"><center>DATOS PERSONALES DEL REPRESENTANTE</center></font></td>
+</tr>
+<div class="field">
+<p>
+<tr><td height="30"><font size="2">Cédula:</font>
+<font color ="#0013E2" size="2"><%= p.pers_cedula %></font></td></tr>
+</p>
+</div>
+
+
+<div class="field">
+<p>
+<tr><td height="30"><font size="2">Nombres:</font>
+<font color ="#0013E2" size="2"><%= p.pers_nombre%></font></td></tr>
+</p>
+</div>
+
+
+
+<div class="field">
+<p>
+<tr><td height="30"><font size="2">Apellidos:</font>
+<font color ="#0013E2" size="2"><%= p.pers_apellido %></font></td></tr>
+</p>
+</div>
+
+
+<div class="field">
+<p>
+<tr><td height="30"><font size="2">Dirección:</font>
+<font color ="#0013E2" size="2"><%= p.pers_direccion %></font></td></tr>
+</p>
+</div>
+
+
+
+<div class="field">
+<p>
+<tr><td height="30"><font size="2">Tlf Convencional:</font>
+<font color ="#0013E2" size="2"><%= p.pers_telefono1 %></font></td></tr>
+</p>
+</div>
+
+
+<div class="field">
+<p>
+<tr><td height="30"><font size="2">Celular:</font>
+<font color ="#0013E2" size="2"><%= p.pers_telefono2 %></font></td></tr>
+</p>
+</div>
+</table>
+<%end%>
+  
+    
+<div oncontextmenu='return false' ondragstart='return false' onmousedown='return false' onselectstart='return false'>
+<center>
+<%=  f.submit "GUARDAR" %>
+</center>
+<%end%>
+
+<input type=button name=print value="Imprimir hoja de Matricula" onClick="window.print()"><br><br>
+<%= link_to "Regresar al Menú Principal", matriculasacademicas_menu_principal_alumno_path %>
+</div>
+  </div>
+ 
+</body>
+</html>

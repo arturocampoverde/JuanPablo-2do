@@ -1,0 +1,69 @@
+<head> 
+<SCRIPT type="text/javascript">
+      window.history.forward();
+      function noBack() { window.history.forward(); }
+    </SCRIPT>
+   </HEAD>
+    <body onload="noBack();"
+    onpageshow="if (event.persisted) noBack();" onunload="">
+
+
+<html>
+  
+<head>
+  <meta http-equiv="Expires" CONTENT="0">
+  <meta http-equiv="Cache-Control" CONTENT="no-cache">
+  <meta http-equiv="Pragma" CONTENT="no-cache">
+</head>
+                    
+<%= form_tag sessions_path do %>
+  
+  <font color="#3C47E3" face="castellar"> <b>INICIO DE SESIÓN</b> </font>
+    
+              
+     <div align="center">                                                               
+<b> <font color ="#CF0505"></b>       
+       
+               <font SIZE="4" FACE="Jokerman">                   
+                   <br></br>                                
+    <h1>BIENVENIDO AL SISTEMA WEB DE LA UNIDAD EDUCATIVA</h1>
+                <h1>"JUAN PABLO II"</h1>
+     </font>                                                                                             
+    <b> <font color ="#2C2FDF" FACE="tahoma"></b> 
+   
+                        <br></br>      
+                                      
+              <body id="body1">           
+      <div id ="marco">                        
+                    
+  <%#*<div style="position:absolute; left:463px; top:343px;"><img src="assets/cedul1.jpeg" width=50 height=43 ></img></div>%>  
+  <%#*<div style="position:absolute; left:465px; top:393px;"><img src="assets/llaves1.jpeg" width=43 height=43 ></img></div>%>          
+  <font color ="#5D5E5F" SIZE="+1" face="elephant"> <b>DATOS DEL ESTUDIANTE:</b> </font>                      
+    
+  
+  <div>
+  
+<p><label form='formulario_cedula'><b>Ingrese Usuario:</b></label>
+<%= text_field_tag :username, params[:username], 'size' => 20,  :style=>"border: 5px inset #3C47E3" %></p> 
+ 
+<p><label form='formulario_contraseña'><b> Ingrese su Código:</b></label>
+<%= password_field_tag :password, params[:password], 'size' => 20,  :style=>"border: 5px inset #3C47E3"  %></p>
+           
+<%= check_box_tag :remember_me, 1, params[:remember_me] %>
+<%= label_tag :Recordarme %>
+  </div>
+
+<div class="actions"><%= submit_tag "Entrar al Sistema", :style=> "color:#291EFF"%></div>
+<br></br>
+
+<div align="right">
+ <%#= link_to "RECUPERAR CONTRASEÑA", login_path , {:style => 'color: #000000'} %>
+  
+<%= link_to 'Olvidó su Contraseña?', new_password_reset_path %>
+        
+</div>
+</div>                
+</body> 
+<%end%>
+  </html>
+   

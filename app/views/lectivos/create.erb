@@ -1,0 +1,47 @@
+<html>
+<body>  
+<script language="JavaScript" type="text/javascript" src="ajax.js"></script>
+
+
+<%=form_for @periodo , :url => {:action=>"create"} do |f| %>
+
+
+<div onkeypress="return ValidNum(event)">  
+<p>
+  <%=f.label "FECHA DE INICIO"%>
+  <%=f.text_field :period_fech_ini %>
+</p>
+
+
+<p>
+  <%=f.label "FECHA DE FINALIZACIÓN"%>
+  <%=f.text_field :period_fech_fin %>
+</p>
+</div>
+
+
+<p>
+  <%=f.label "ESTADO PERIODO LECTIVO"%>
+  <%=f.text_field :period_estad_lect %>
+</p>
+
+<%=  f.submit "GUARDAR" %>
+
+
+<% if @periodo.errors.any? %>
+
+            <div align="left">             
+                <ul><H1><font SIZE="4" FACE="arial" color ="#BF0000"> ERRORES</font>      </H1>      
+                  <% for message in @periodo.errors.full_messages %>                          
+                    <li><%= message %></li>
+                    <br> 
+                 <% end %>
+                </ul>              
+            </div>
+          <% end %>
+
+<%end%>
+
+
+</body>
+<html>

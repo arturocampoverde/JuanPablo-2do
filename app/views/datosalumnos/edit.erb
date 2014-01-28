@@ -1,0 +1,113 @@
+<%= form_tag datoseditalum_path do %>
+<html>
+<body>
+  
+<table>
+<div class="field">
+<b><font size="2">DATOS DE USUARIO</font></b>
+<tr><td><font size="2"><font color ="#0013E2">Nombre de Usuario:</font></font>
+<%=text_field_tag :pers_usuario, @person.users.each.first.username,:disabled =>true%></td>
+</div>
+
+<div class="field">
+<tr><td><font size="2"><font color ="#0013E2">Correo Eléctronico:</font></font>
+<%=text_field_tag :pers_email, @person.users.each.first.email,:disabled =>true%></td>
+</div>
+</table>
+<br>
+
+
+<table>
+<div class="field">
+   
+         <div onkeypress="return ValidNum(event)">
+          
+           <b><font size="2">EDITAR DATOS PERSONALES</font></b>  
+           <tr><td><font size="2"><font color ="#0013E2">Cédula:</font></font>
+           <%= text_field_tag :pers_cedula, @person.pers_cedula,:disabled =>true%></td>
+         </div>
+</div>  
+         
+      <div class="field">           
+            <tr><td><font color ="#0013E2"><%= label_tag "Nombres" %></font>
+             <%= text_field_tag :pers_nombre, @person.pers_nombre, :disabled =>true %></td></tr>          
+      </div>  
+          
+  
+      <div class="field">
+          <tr><td><font color ="#0013E2"><%= label_tag "Apellidos" %></font>
+          <%= text_field_tag :pers_apellido, @person.pers_apellido, :disabled =>true %></td></tr> 
+      </div>
+          
+          
+      <div class="field">
+          <tr><td><font color ="#0013E2"><%= label_tag "Dirección" %></font>
+          <%= text_field_tag :pers_direccion, @person.pers_direccion %></td></tr>
+      </div>
+      
+        
+      <div class="field">
+          <div onkeypress="return ValidNum(event)">
+          <tr><td><font color ="#0013E2"><%= label_tag "Telefono Convencional" %></font>
+          <%= text_field_tag :pers_telefono1,@person.pers_telefono1 %></td></tr>
+      </div>
+          
+      
+      <div class="field">  
+          <div onkeypress="return ValidNum(event)">
+          <tr><td><font color ="#0013E2"><%= label_tag "Telefono Celular" %></font> 
+          <%= text_field_tag :pers_telefono2, @person.pers_telefono2 %></td></tr>
+      </div>
+        <%= hidden_field_tag :person_id, @person.id %>
+        </table>
+      
+                           
+      
+
+</br>
+<b><font size="2">EDITAR DATOS DEL REPRESENTANTE</font></b>
+<table>
+         <div onkeypress="return ValidNum(event)">
+            <tr><td><font color ="#0013E2"><%= label_tag "Cedula" %></font>
+            <%= text_field_tag :repre_cedula, @repre.pers_cedula, :disabled =>false %></td></tr>
+         </div>
+     
+
+          <div>
+             <tr><td><font color ="#0013E2"><%= label_tag "Nombres" %></font>
+             <%= text_field_tag :repre_nombre, @repre.pers_nombre, :disabled =>false %></td></tr>
+          </div>
+
+
+          <div>
+            <tr><td><font color ="#0013E2"><%= label_tag "Apellidos" %></font>
+            <%= text_field_tag :repre_apellido, @repre.pers_apellido, :disabled =>false %></td></tr>
+          </div>
+    
+
+          <div>
+           <tr><td><font color ="#0013E2"><%= label_tag "Dirección" %></font>
+           <%= text_field_tag :repre_direccion, @repre.pers_direccion%></td></tr>
+          </div>
+          
+
+          <div onkeypress="return ValidNum(event)">
+            <tr><td><font color ="#0013E2"><%= label_tag "Telefono Convencional" %></font>
+            <%= text_field_tag :repre_telefono1,@repre.pers_telefono1%></td></tr>
+          </div>
+         
+
+          <div onkeypress="return ValidNum(event)">
+             <tr><td><font color ="#0013E2"><%= label_tag "Telefono Celular" %></font>
+             <%= text_field_tag :repre_telefono2, @repre.pers_telefono2 %></td></tr>
+          </div>
+            <%= hidden_field_tag :repre_id, @repre.id %>
+        </table>      
+    
+    <div align="center">
+      <div class="actions"><%= submit_tag "ACTUALIZAR DATOS" %></div>
+    </div>
+</body>
+</html>
+
+<%end%>  

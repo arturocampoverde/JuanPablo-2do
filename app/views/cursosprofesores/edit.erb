@@ -1,0 +1,346 @@
+<script>
+  $(document).change(function() {
+    //variables para calcular promedio
+    var alumnos_arr = document.getElementsByClassName("alumnos");
+    var deberes_arr = document.getElementsByClassName("tareas");
+    var trabajos_arr = document.getElementsByClassName("act_indivs");
+    var aportes_arr = document.getElementsByClassName("act_grups");
+    var lecciones_arr = document.getElementsByClassName("lecciones");
+    var examenes_arr = document.getElementsByClassName("examenes");
+    var total_arr = document.getElementsByClassName("totales");
+    var promedio_arr = document.getElementsByClassName("promedios");
+
+    var deberes_cualit_arr = document.getElementsByClassName("tareas_cualit");
+    var trabajos_cualit_arr = document.getElementsByClassName("act_indivs_cualit");
+    var aportes_cualit_arr = document.getElementsByClassName("act_grups_cualit");
+    var lecciones_cualit_arr = document.getElementsByClassName("lecciones_cualit");
+    var examenes_cualit_arr = document.getElementsByClassName("examenes_cualit");
+    var promedio_cualit_arr = document.getElementsByClassName("promedios_cualit");
+
+    //calcula promedio
+    function calcula_promedio(recorrido, iden, val1, val2, val3, val4, val5){
+      //$('#'+iden).val(val1);
+      //$('#'+iden_unit).val(valor2);
+      deberes_arr[recorrido].value = val1;
+      if (val1 == 10)
+        { deberes_cualit_arr[recorrido].value = "SAR";}
+      else
+        {
+          if (val1 == 9)
+          { deberes_cualit_arr[recorrido].value = "DAR";}
+          else
+            {
+              if (val1 >=6.99  && val1 <= 8)
+              { deberes_cualit_arr[recorrido].value = "AAR";}
+              else
+                {
+                  if (val1 >= 5 && val1 <= 6)
+                    { deberes_cualit_arr[recorrido].value = "EPAAR";}
+                    else
+                      {
+                        if (val1 <= 4)
+                          { deberes_cualit_arr[recorrido].value = "NAAR";}
+                      }
+                }
+            }
+        }
+
+      lecciones_arr[recorrido].value = val2;
+      if (val2 == 10)
+        { lecciones_cualit_arr[recorrido].value = "SAR";}
+      else
+        {
+          if (val2 == 9)
+          { lecciones_cualit_arr[recorrido].value = "DAR";}
+          else
+            {
+              if (val2 >=6.99  && val2 <= 8)
+              { lecciones_cualit_arr[recorrido].value = "AAR";}
+              else
+                {
+                  if (val2 >= 5 && val2 <= 6)
+                    { lecciones_cualit_arr[recorrido].value = "EPAAR";}
+                    else
+                      {
+                        if (val2 <= 4)
+                          { lecciones_cualit_arr[recorrido].value = "NAAR";}
+                      }
+                }
+            }
+        }
+
+      trabajos_arr[recorrido].value = val3;
+      if (val3 == 10)
+        { trabajos_cualit_arr[recorrido].value = "SAR";}
+      else
+        {
+          if (val3 == 9)
+          { trabajos_cualit_arr[recorrido].value = "DAR";}
+          else
+            {
+              if (val3 >=6.99  && val3 <= 8)
+              { trabajos_cualit_arr[recorrido].value = "AAR";}
+              else
+                {
+                  if (val3 >= 5 && val3 <= 6)
+                    { trabajos_cualit_arr[recorrido].value = "EPAAR";}
+                    else
+                      {
+                        if (val3 <= 4)
+                          { trabajos_cualit_arr[recorrido].value = "NAAR";}
+                      }
+                }
+            }
+        }
+
+      aportes_arr[recorrido].value = val4;
+      if (val4 == 10)
+        { aportes_cualit_arr[recorrido].value = "SAR";}
+      else
+        {
+          if (val4 == 9)
+          { aportes_cualit_arr[recorrido].value = "DAR";}
+          else
+            {
+              if (val4 >=6.99  && val4 <= 8)
+              { aportes_cualit_arr[recorrido].value = "AAR";}
+              else
+                {
+                  if (val4 >= 5 && val4 <= 6)
+                    { aportes_cualit_arr[recorrido].value = "EPAAR";}
+                    else
+                      {
+                        if (val4 <= 4)
+                          { aportes_cualit_arr[recorrido].value = "NAAR";}
+                      }
+                }
+            }
+        }
+
+      examenes_arr[recorrido].value = val5;
+      if (val5 == 10)
+        { examenes_cualit_arr[recorrido].value = "SAR";}
+      else
+        {
+          if (val5 == 9)
+          { examenes_cualit_arr[recorrido].value = "DAR";}
+          else
+            {
+              if (val5 >=6.99  && val5 <= 8)
+              { examenes_cualit_arr[recorrido].value = "AAR";}
+              else
+                {
+                  if (val5 >= 5 && val5 <= 6)
+                    { examenes_cualit_arr[recorrido].value = "EPAAR";}
+                    else
+                      {
+                        if (val5 <= 4)
+                          { examenes_cualit_arr[recorrido].value = "NAAR";}
+                      }
+                }
+            }
+        }
+
+      total_arr[recorrido].value = parseFloat(deberes_arr[recorrido].value) + parseFloat(lecciones_arr[recorrido].value) + parseFloat(trabajos_arr[recorrido].value) + parseFloat(aportes_arr[recorrido].value) + parseFloat(examenes_arr[recorrido].value);
+
+      promedio_arr[recorrido].value = parseFloat(parseFloat(total_arr[recorrido].value)/5)
+      var val6 = parseFloat(parseFloat(total_arr[recorrido].value)/5)
+      if (val6 == 10)
+        { promedio_cualit_arr[recorrido].value = "SAR";}
+      else
+        {
+          if (val6 == 9)
+          { promedio_cualit_arr[recorrido].value = "DAR";}
+          else
+            {
+              if (val6 >=6.99  && val6 <= 8)
+              { promedio_cualit_arr[recorrido].value = "AAR";}
+              else
+                {
+                  if (val6 >= 5 && val6 <= 6)
+                    { promedio_cualit_arr[recorrido].value = "EPAAR";}
+                    else
+                      {
+                        if (val6 <= 4)
+                          { promedio_cualit_arr[recorrido].value = "NAAR";}
+                      }
+                }
+            }
+        }
+    }
+
+    //PARA CALCULAR LA TABLA DE AVALUOS
+    for (var i = 0; i < alumnos_arr.length; i++) {
+      var current_deber_id = deberes_arr[i].id;
+      /*var current_actuacion_id = actuaciones_arr[i].id;
+      var current_leccion_id = lecciones_arr[i].id;
+      var current_examen_id = examenes_arr[i].id;*/
+      var deber = $('#'+deberes_arr[i].id).val();
+      var leccion = $('#'+lecciones_arr[i].id).val();
+      var trabajo = $('#'+trabajos_arr[i].id).val();
+      var aporte = $('#'+aportes_arr[i].id).val();
+      var examen = $('#'+examenes_arr[i].id).val();
+      //alert(deberes_arr[i].id)
+      
+      $('#'+deberes_arr[i].id).change({arr_rec: i, arr_id: current_deber_id, val1: deber, val2: leccion, val3: trabajo, val4: aporte, val5: examen},function(event) {
+        calcula_promedio(event.data.arr_rec, event.data.arr_id, $(this).val(), event.data.val2, event.data.val3, event.data.val4, event.data.val5);
+      });
+      
+      $('#'+lecciones_arr[i].id).change({arr_rec: i, arr_id: current_deber_id, val1: deber, val2: leccion, val3: trabajo, val4: aporte, val5: examen},function(event) {
+        calcula_promedio(event.data.arr_rec, event.data.arr_id, event.data.val1, $(this).val(), event.data.val3, event.data.val4, event.data.val5);
+      });
+      
+      $('#'+trabajos_arr[i].id).change({arr_rec: i, arr_id: current_deber_id, val1: deber, val2: leccion, val3: trabajo, val4: aporte, val5: examen},function(event) {
+        calcula_promedio(event.data.arr_rec, event.data.arr_id, event.data.val1, event.data.val2, $(this).val(), event.data.val4, event.data.val5);
+      });
+      
+      $('#'+aportes_arr[i].id).change({arr_rec: i, arr_id: current_deber_id, val1: deber, val2: leccion, val3: trabajo, val4: aporte, val5: examen},function(event) {
+        calcula_promedio(event.data.arr_rec, event.data.arr_id, event.data.val1, event.data.val2, event.data.val3, $(this).val(), event.data.val5);
+      });
+
+      $('#'+examenes_arr[i].id).change({arr_rec: i, arr_id: current_deber_id, val1: deber, val2: leccion, val3: trabajo, val4: aporte, val5: examen},function(event) {
+        calcula_promedio(event.data.arr_rec, event.data.arr_id, event.data.val1, event.data.val2, event.data.val3, event.data.val4, $(this).val());
+      });
+    }
+    
+   /* for (var i = 0; i < avaluos.length; i++) {
+      var nombre_avaluo = avaluos[i].textContent;
+      var current_area_id = areas[i].id;
+      var current_unit_id = unitarios[i].id;
+      var area = $('#'+areas[i].id).val();
+      $('#'+unitarios[i].id).change({arr_rec: i, nom: nombre_avaluo, val1: area, area_id: current_area_id, unitario_id: current_unit_id},function(event) {
+        actualiza_areas(event.data.area_id, event.data.unitario_id, event.data.arr_rec, event.data.val1, $(this).val());
+      });
+    }*/
+});
+</script>
+
+<%if @distributivo.persona_id == current_user.persona_id%>
+<html>
+
+<body>
+  <br/>
+
+ <%= "Asignatura: " + @distributivo.asignatura.asig_nombre %>
+<br/>
+ <%= "Docente: " + @distributivo.persona.pers_nombre %> <%= @distributivo.persona.pers_apellido %>
+<br/>
+
+Nivel: <%= @distributivo.curso.nivel.nivel_numero%>  Paralelo: <%= @distributivo.curso.cur_paralelo%>
+  <table>
+    <tr align="center">
+      <td rowspan="2">Alumnos</td>
+      <td align="center" colspan ="2">TAREAS</td>
+      <td align="center" colspan ="2">ACTIVIDAD INDIVIDUAL</td>
+      <td align="center" colspan ="2">ACTIVIDAD GRUPAL</td>
+      <td align="center" colspan ="2">LECCIONES</td>
+      <td align="center" colspan ="2">EXAMEN PARCIAL</td>
+      <td align="center" colspan ="2">PROMEDIO PARCIAL</td>
+      <td align="center" rowspan="2">COMPORTAMIENTO</td>
+      <%#*<td align="center">Conducta</td>%>
+    </tr>
+    <tr>
+      <td>CUANT</td>
+      <td>CUALIT</td>
+      <td>CUANT</td>
+      <td>CUALIT</td>
+      <td>CUANT</td>
+      <td>CUALIT</td>
+      <td>CUANT</td>
+      <td>CUALIT</td>
+      <td>CUANT</td>
+      <td>CUALIT</td>
+      <td>CUANT</td>
+      <td>CUALIT</td>
+    </tr>
+    <%= form_tag update_alumnos_matriculados_path do%>
+      <%@calificaciones.each do |a|%>
+        <tr align="center">
+          <td><%= label_tag a.matricula.persona.pers_nombre + " " + a.matricula.persona.pers_apellido, nil, :class=>"alumnos"%></td>
+
+          <td><%= text_field_tag "tarea[]", a.calif_tarea, :class => "tareas", :id => "tareas_"+ "#{a.matricula.persona.id}"%></td>
+          <td><%= text_field_tag "cualitativo", 0, :class => "tareas_cualit", :id => "tareas_cualit_"+ "#{a.id}"%></td>
+
+          <td><%= text_field_tag "act_indiv[]", a.calif_act_indv, :class => "act_indivs", :id => "act_indivs_"+ "#{a.matricula.persona.id}"%></td>
+          <td><%= text_field_tag "cualitativo", 0, :class => "act_indivs_cualit", :id => "act_indivs_cualit_"+ "#{a.id}"%></td>
+
+          <td><%= text_field_tag "act_grup[]", a.calif_act_grup, :class => "act_grups", :id => "act_grups_"+ "#{a.matricula.persona.id}"%></td>
+          <td><%= text_field_tag "cualitativo", 0, :class => "act_grups_cualit", :id => "act_grups_cualit_"+ "#{a.id}"%></td>
+
+          <td><%= text_field_tag "leccion[]", a.calif_leccion, :class => "lecciones", :id => "lecciones_"+ "#{a.matricula.persona.id}"%></td>
+          <td><%= text_field_tag "cualitativo", 0, :class => "lecciones_cualit", :id => "lecciones_cualit_"+ "#{a.id}"%></td>
+
+          <td><%= text_field_tag "examen[]", a.calif_examen, :class => "examenes", :id => "examenes_"+ "#{a.matricula.persona.id}"%></td>
+          <td><%= text_field_tag "cualitativo", 0, :class => "examenes_cualit", :id => "examenes_cualit_"+ "#{a.id}"%></td>
+
+          <%= hidden_field_tag "total[]", a.calif_total, :class => "totales", :id => "totales_"+ "#{a.matricula.persona.id}", :readonly => "true"%>
+
+          <td><%= text_field_tag "promedio[]", a.calif_promedio, :class => "promedios", :id => "promedios_"+ "#{a.matricula.persona.id}", :readonly => "true"%></td>
+          <td><%= text_field_tag "cualitativo", 0, :class => "promedios_cualit", :id => "promedios_cualit_"+ "#{a.id}"%></td>
+
+          <td><%= text_field_tag "conducta[]", a.calif_conducta, :class => "conductas", :id => "conductas_"+ "#{a.matricula.persona.id}"%></td>
+          <%= hidden_field_tag "calificaciones_ids[]", a.id %>
+        </tr>
+      <%end%>
+        <%#@matricula.each do |m| %>
+          <%#= hidden_field_tag "matricula_ids[]", m.id %>
+        <%#end%>
+        <%#@asignatura.each do |ass| %>
+          <%= hidden_field_tag :asignatura_id, @distributivo.asignatura.id %>
+        <%#end%>
+      <tr><td><%=  submit_tag "Guardar"%></td></tr>
+       <%= hidden_field_tag :contador_alumnos, @alumnos_count %>
+       <%= hidden_field_tag :distributivo_id, @distributivo.id %>
+    <%end%>
+  </table>
+<%#= @alumnos_count %>
+
+
+<div align="center">
+  <br>
+  <br>
+  <br>
+  <br>
+ -------------------------------
+     <br>PROFESOR
+</div>
+
+<div align="center">
+  <br>
+  <br>
+  <br>
+ -------------------------------
+     <br>VICERRECTOR ACADÉMICO
+</div>
+</body>
+</html>
+
+<%else%>
+<!DOCTYPE html>
+<html> 
+<head>
+  <title>The page you were looking for doesn't exist (404)</title>
+  <style type="text/css">
+    body { background-color: #fff; color: #666; text-align: center; font-family: arial, sans-serif; }
+    div.dialog {
+      width: 25em;
+      padding: 0 4em;
+      margin: 4em auto 0 auto;
+      border: 1px solid #ccc;
+      border-right-color: #999;
+      border-bottom-color: #999;
+    }
+    h1 { font-size: 120%; color: #f00; line-height: 1.5em; }
+  </style>
+</head>
+
+<body>
+  <!-- This file lives in public/404.html -->
+  <div class="dialog">
+    <h1>LA PÁGINA A LA QUE QUIERES ACCEDER, NO EXISTE.</h1>
+    <p>ES POSIBLE QUE LA PÁGINA HAYA SIDO MOVIDA</p>
+  </div>
+</body>
+</html>
+
+<%end%>

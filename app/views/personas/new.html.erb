@@ -1,0 +1,151 @@
+<h1>Registro de Corredores</h1>
+<% #for message in @user.errors.full_messages %>
+<div id="content">
+<div id="wrapper">
+  <div id="steps">
+    <!--<form id="formElem"  action="" method="">-->
+      <%= form_for @user, :html => {:multipart => true} do |f|%>
+      <fieldset class="step">
+        <legend>Cuenta</legend>
+          <% if @user.errors.any? %>
+            <div class="error_messages">
+              <h2>Formulario no valido</h2>
+                <ul>
+                  <% for message in @user.errors.full_messages %>
+                    <li><%= message %></li>
+                  <% end %>
+                </ul>
+            </div>
+          <% end %>
+        
+        
+        
+             <%= form_for @person, :url => {:action=>"create"} do |f|%>
+      <fieldset class="step">
+        <legend>USUARIO</legend>
+          <% if @person.errors.any? %>
+            <div class="error_messages">
+              <h2>Formulario Incorrecto</h2>
+                <ul>                  
+                  <% for message in @person.errors.full_messages %>
+                          <br>
+                    <li><%= message %></li>
+                 <% end %>
+                </ul>
+              
+            </div>
+          <% end %>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+       
+        
+          <div align="center">
+  
+<div class="field">
+<font color ="#AA1D34" size="4">
+<%= f.label :Usuario %>
+</font>
+<%= f.text_field :username %>
+</div>
+
+<div class="field">
+  <font color ="#AA1D34" size="4">
+<%= f.label :Correo_Electronico %>
+  </font>
+<%= f.text_field :email %>
+</div>
+
+<div class="field">
+<font color ="#AA1D34" size="4">
+<%= f.label :Contraseña %>
+</font>
+<%= f.password_field :password %>
+</div>
+
+<div class="field">
+<font color ="#AA1D34" size="4">
+<%= f.label :Confirmar_Contraseña %>
+</font>
+<%= f.password_field :password_confirmation %>
+</div>
+
+<div class="actions"><%= f.submit "Registrarse" %></div>
+
+
+</div>
+          
+          
+      <fieldset class="step">
+        <legend>Datos Personales</legend>
+          <%= fields_for :persona do |f| %>
+          <%# if @person.errors.any? %>
+            <%#*<div class="error_messages">%>
+              <%#*<h2>Formulario no valido</h2>%>
+                <%#*<ul>%>
+                  <%# for message in @person.errors.full_messages %>
+                    <%#*<li><%= message %><!--</li>%>-->
+                  <%# end %>
+                <%#*</ul>%>
+            <%#*</div>%>
+          <%# end %>
+          <p>
+            <%= f.label :Cedula %>
+            <%= f.text_field :pers_cedula %>
+          </p>
+          <p>
+            <%= f.label :Apellidos %>
+            <%= f.text_field :pers_nombre %>
+          </p>
+          <p>
+            <%= f.label :Nombres %>
+            <%= f.text_field :pers_apellido %>
+          </p>
+          <p>
+            <%= f.label :Direccion %>
+            <%= f.text_field :pers_direccion %>
+          </p>
+          <p>
+            <%= f.label :"Telefono Convencional" %>
+            <%= f.text_field :pers_telefono1 %>
+          </p>
+          <p>
+            <%= f.label :"Telefono Celular" %>
+            <%= f.text_field :pers_telefono2 %>
+          </p>
+          <p>
+            <%= f.label :"Correo Electronico" %>
+            <%= f.text_field :pers_email %>
+          </p><%end%>
+          <p class="button">
+            <button id="registerButton">
+            <%#= f.submit; p.submit "Guardar"%>
+            <%= f.submit "Guardar"%>
+            </button>
+          </p>
+          </fieldset>
+      
+          
+      
+
+      <% end %>
+    <!--</form>-->
+  </div>
+  <div id="navigation" style="display:none;">
+    <ul>
+      <li class="selected">
+        <a href="#">Cuenta</a>
+      </li>
+      <li>
+        <a href="#">Datos Personales</a>
+      </li>
+    </ul>
+  </div>
+</div>
+</div>

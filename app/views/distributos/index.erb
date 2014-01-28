@@ -1,0 +1,37 @@
+<h1><center> DISTRIBUTIVO ACADÉMICO</center></h1>
+
+
+<html>
+    <head> 
+      <script type="text/javascript" src="/javascript/jquery.tablesorter.js"></script>      
+    </head> 
+
+   <table align="center" id="myTable" class="tablesorter">
+   <thead> 
+    <tr bgcolor="#03EB12">
+      <th align = "center"><%= link_to "PROFESOR", "PROFESOR"%></th>
+      <th align = "center"><%= link_to "ASIGNATURA", "ASIGNATURA"%></th>
+      <th align = "center"><%= link_to "CURSO", "CURSO"%></th>
+      <th align = "center"><%= link_to "PARALELO", "PARALELO"%></th>
+    </tr>
+  </thead> 
+
+     
+         <tbody> 
+    <tr>
+     
+<% @distributos.each do |f| %>
+ 
+<td align = "center"><%=f.persona.pers_nombre%><%=f.persona.pers_apellido%></td>
+<td align = "center"><%=f.asignatura.asig_nombre%></td>
+<td align = "center"><%=f.curso.nivel.nivel_numero%> <%=f.curso.nivel.nivele.tip_niv_nombre%></td>
+<td align = "center"><%=f.curso.cur_paralelo%></td>
+
+<td><%= link_to "EDITAR", edit_distributo_path(f)%> </td>
+<td><%= link_to "ELIMINAR", f, :confirm => 'ESTAS SEGURISIMO ??', :method => :delete %></td>
+</tr>  
+ 
+  <%end%>
+</tbody> 
+</table>
+</html>

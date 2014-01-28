@@ -1,0 +1,250 @@
+<html>
+<head>
+<%#=javascript_include_tag 'cycle.js'%>
+<%#=stylesheet_link_tag 'index.css', :media => "screen" %>
+<%#*<script type="text/javascript">$('#rotator').cycle('fade');%>
+</script>
+<title>AJAX: actualizar contenido</title>
+<link href="style.css" rel="stylesheet" type="text/css" />
+<link href="index.scss" rel="stylesheet" type="text/css" />
+<script language="JavaScript" type="text/javascript" src="ajax.js"></script>
+</head>    
+       <head>         
+         <style>
+<!--
+.styling{
+background-color:black;
+color:lime;
+font: bold 16px MS Sans Serif;
+padding: 3px;
+}
+-->
+</style>         
+       </head>       
+       <body id="reloj">         
+         <span id="digitalclock" class="styling"></span>
+<script>
+  
+<!--
+//HORA DEL SISTEMA EN VIVO
+var alternate=0
+var standardbrowser=!document.all&&!document.getElementById
+
+if (standardbrowser)
+document.write('<form name="tick"><input type="text" name="tock" size="11"></form>')
+
+function show(){
+if (!standardbrowser)
+var clockobj=document.getElementById? document.getElementById("digitalclock") : document.all.digitalclock
+var Digital=new Date()
+var hours=Digital.getHours()
+var minutes=Digital.getMinutes()
+var dn="AM"
+
+if (hours==12) dn="PM" 
+if (hours>12){
+dn="PM"
+hours=hours-12
+}
+if (hours==0) hours=12
+if (hours.toString().length==1)
+hours="0"+hours
+if (minutes<=9)
+minutes="0"+minutes
+
+if (standardbrowser){
+if (alternate==0)
+document.tick.tock.value=hours+" : "+minutes+" "+dn
+else
+document.tick.tock.value=hours+"   "+minutes+" "+dn
+}
+else{
+if (alternate==0)
+clockobj.innerHTML=hours+" : "+minutes+" "+"<sup style='font-size:1px'>"+dn+"</sup>"
+else
+clockobj.innerHTML=hours+" : "+minutes+" "+"<sup style='font-size:1px'>"+dn+"</sup>"
+}
+alternate=(alternate==0)? 1 : 0
+setTimeout("show()",1000)
+}
+window.onload=show
+//-->
+</script>
+         
+         
+         <script language="JavaScript">
+<!--
+// ==============================================
+// FECHA MES, DIA, AÑO
+var TheFontFace  = "algerian";
+var TheFontColor = "#1656C4";
+var TheFontSize  = "4";
+var TheFontStyle = "boldcastellar"; 
+
+// Set the separator between the date elements;
+// usually use either - or /.
+
+var TheSeparator = "-";
+
+// Show or do not show the day of the week; set
+// yes to show, no not to show.
+
+var ShowDay ="yes";
+// Do Not Edit Below This Line
+// ==============================================
+var Days = new Array("Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sabado");
+var TheDate = new Date();
+
+var TheWeekDay = TheDate.getDay();
+var Day ="";
+if (ShowDay == "yes"){
+    Day = Days[TheWeekDay];
+    Day += " ";}
+
+var TheMonth = TheDate.getMonth() + 1;
+if (TheMonth < 10) TheMonth = "0" + TheMonth;
+
+var TheMonthDay = TheDate.getDate();
+if (TheMonthDay < 10) TheMonthDay = "0" + TheMonthDay;
+
+var TheYear = TheDate.getYear();
+if (TheYear < 1000) TheYear += 1900;
+
+var FontTagLeft  = "";
+var FontTagRight = "";
+
+if (TheFontStyle == "bold"){
+    FontTagLeft = "<b>";
+    FontTagRight ="</b>";}
+    
+if (TheFontStyle == "castellar"){
+    FontTagLeft = "<i>";
+    FontTagRight ="</i>";}
+    
+if (TheFontStyle == "boldcastellar"){
+    FontTagLeft = "<b><i>"; 
+    FontTagRight = "</i></b>";}    
+
+var D = "";
+D += "<font color='"+TheFontColor+"' face='"+TheFontFace+"' size='"+TheFontSize+"'>";
+D += FontTagLeft+Day+TheMonth+TheSeparator+TheMonthDay+TheSeparator+TheYear+FontTagRight;
+D += "</font>";
+document.write(D);
+//-->
+</script>        
+</body>
+       <%if current_user%>
+       <div align="right">                
+   <font color="#0073FF" FACE="arial">BIENVENID@ </font> <b><%= current_user.email%></b>
+       </div>
+
+       <%end%>
+
+  <body id="body2">        
+    <div align="left">                                 
+<b><font color ="#D101DC" FACE="roman"></font></b>
+    </div>      
+    
+    <%if current_user%>
+    <div align="right"> 
+      <font FACE="roman" ><b><%= link_to "Cerrar Sesión", logout_path %></b></font>
+    </div>
+    <%end%>
+    
+    
+    <%if current_user%>
+    <%else%>
+    <div align="right">
+    <%= link_to "INICIE SESIÓN", login_path %>
+    </div>
+    <%end%>        
+    <HR noshade size="8" width="100%">  
+
+    
+    
+       
+
+  <%if current_user%> 
+  <%else%>
+<div id ="rotator">
+<img align="right" <%=image_tag "pa3.jpg"%></img>
+<img align="right" <%=image_tag "pa4.jpg"%></img>
+<img align="right" <%=image_tag "papin.jpeg"%></img>
+<img align="right" <%=image_tag "an1.jpg"%></img>
+<img align="right" <%=image_tag "an2.jpg"%></img>
+<img align="right" <%=image_tag "an3.jpg"%></img>
+<img align="right" <%=image_tag "an4.jpg"%></img>
+<img align="right" <%=image_tag "an5.jpg"%></img>
+<img align="right" <%=image_tag "an6.jpg"%></img>
+<img align="right" <%=image_tag "an7.jpg"%></img>
+<img align="right" <%=image_tag "an8.jpg"%></img>
+<img align="right" <%=image_tag "an9.jpg"%></img>
+<img align="right" <%=image_tag "an10.jpg"%></img>
+<img align="right" <%=image_tag "an12.jpg"%></img>
+<img align="right" <%=image_tag "an13.jpg"%></img>
+<img align="right" <%=image_tag "an14.jpg"%></img>
+<img align="right" <%=image_tag "an15.jpg"%></img>
+</div>
+     <%end%>  
+ 
+    
+    
+    
+    <div align="center">                                  
+      <p><font color="#1C2ACB" SIZE="6" FACE="algerian"><b>UNIDAD EDUCATIVA PARTICULAR MIXTA</b></font> <font color="#230000" SIZE="6" FACE="algerian"><b>"JUAN PABLO II"</b></font></p>
+    </div>               
+    
+  <ul id="navi">   
+  
+  <li><a href="#"><b><font FACE="LUCIDA CONSOLE" color="C13131" size="3">CURRICULUM</font></b></a>
+                <ul>
+                    <li><a href="javascript:Solicitud('cursosrealizados/new.html','pagina')"><b><font face="arial">Crear Curriculum</font></b></a></li>
+                    <li><a href="javascript:Solicitud('cursosrealizados/index.html','pagina')"><b><font face="arial">Ver Curriculum</font></b></a></li>
+                                                                                   
+                </ul>
+  </li>
+   
+  
+  
+  
+ 
+  <li><a href="#"><font FACE="LUCIDA CONSOLE" color="C13131" size="3"><b>CURSOS</b></font></a>
+                  <ul>
+                    <li><a href="javascript:Solicitud('cursosprofesores/index.html','pagina')"><b><font face="arial">LISTAR CURSOS</font></b></a></li>
+                    <li><a href="javascript:Solicitud('cursosprofesores/lista.html','pagina')"><b><font face="arial">LISTA DE ESTUDIANTES</font></b></a></li>
+                  </ul>
+  </li>
+  
+  
+  
+  
+  
+
+  <%#*<li><a href="#"><b><font FACE="LUCIDA CONSOLE" color="C13131" size="3">NOTAS</font></b></a>%>  
+                <%#*<ul>%>
+                    <%#*<li><a href="javascript:Solicitud('profesor/notas.html','pagina')"><b><font face="arial">NOTAS</font></b></a></li>%>   
+                    <%#*<li><a href="javascript:Solicitud('profesor/notas.html','pagina')"><b><font face="arial">EDITAR</font></b></a></li>%>   
+                <%#*</ul>%>
+  
+  <%#*</li>%>
+  
+  
+  
+  <li><a href="#"><b><font FACE="LUCIDA CONSOLE" color="C13131" size="3">DISTRIBUTIVO</font></b></a>  
+                <ul>
+                    <li><a href="javascript:Solicitud('cursosrealizados/horario.html','pagina')"><b><font face="arial">HORARIO DE CLASES</font></b></a></li>    
+                </ul>
+  
+  </li>
+  </ul>   
+   
+   
+   
+   
+   <div id="contenedor">
+	<div id="navi">		
+	</div>
+	<div id="pagina"></div>
+</div>
+ </body>
+  </html> 

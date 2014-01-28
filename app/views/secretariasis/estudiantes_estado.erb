@@ -1,0 +1,56 @@
+<html>
+    <head>
+      <%#*<script type="text/javascript" src="/javascript/jquery-latest.js"></script>%> 
+      <script type="text/javascript" src="/javascript/jquery.tablesorter.js"></script>      
+    </head>  
+
+    
+ 
+    
+    
+    
+<table align="center" id="myTable" class="tablesorter">  
+  <thead> 
+    <tr bgcolor="#03EB12">
+    
+    
+      
+
+      
+      
+    
+    <th><%= link_to "NOMBRES", "NOMBRES"%></th>
+    <th><%= link_to "ESTADO", "ESTADO" %></th>
+    
+
+    
+    </tr>
+  </thead>
+  
+  <tbody> 
+  <tr>
+       <%@matriculas.each do |matr|%>
+    
+       <%estado = "APROBADO"%>
+       <td>
+       <%= matr.persona.pers_nombre %> <%= matr.persona.pers_apellido%> ---
+       <%= matr.curso.nivel.nivel_numero %>
+       <%= matr.curso.cur_paralelo %>
+       </td>
+  
+       <%matr.calificaciones.each do |cal| %>
+    <%if cal.calif_estado == "REPROBADO"%>
+      <%estado = "REPROBADO"%>
+ 
+      <%end%>
+    <%end%> 
+  <td><%= estado%></td>
+  
+  
+  
+  </tr>
+   <%end%>
+<input type=button name=print value="Imprimir" onClick="window.print()"><br><br>    
+ </tbody>
+</table>
+</html>

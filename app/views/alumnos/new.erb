@@ -1,0 +1,50 @@
+<%=form_for :users, :url => {:action=>"create"} do |f| %>
+  
+<p>
+  <%=f.label "Nombres"%>
+  <%=f.text_field :Nombres %>
+</p>
+
+
+<p>
+  <%=f.label "Apellidos"%>
+  <%=f.text_field :Apellidos %>
+</p>
+
+
+<p>
+  <%=f.label "Ciudad"%>
+  <%=f.text_field :Ciudad %>
+</p>
+
+
+<p>
+  <%=f.label "Sexo"%>
+  <%=f.text_field :Sexo %>
+</p>
+
+
+<p>
+  <%=f.label "Nacionalidad"%>
+  <%=f.text_field :Nacionalidad %>
+</p>
+
+
+<p>
+  <%=f.label "Telefono"%>
+  <%=f.text_field :Telefono %>
+</p>
+
+
+<p>
+  <%=f.label "Direccion"%>
+  <%=f.text_field :Direccion %>
+</p>
+
+
+<%=  f.submit "GUARDAR" %>
+
+
+
+
+<%end%>

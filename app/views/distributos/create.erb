@@ -1,0 +1,46 @@
+
+<%#=form_for @nivel , :url => {:action=>"create"} do |f| %>
+   
+<%#*<p>%>
+  <%#=f.label "NIVEL"%>
+  <%#=f.text_field :nivel_numero %>
+<%#*</p>%>
+
+ 
+<%#*<p>%>
+  <%#=f.label "DESCRIPCION"%>
+  <%#=f.text_field :nivel_descrip %>
+<%#*</p>%>
+
+
+<%#=  f.submit "GUARDAR" %>
+<%#end%>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<% if @distributo.errors.any? %>
+
+            <div align="left">             
+                <ul><H1><font SIZE="4" FACE="arial" color ="#BF0000"> ERRORES</font>      </H1>      
+                  <% for message in @distributo.errors.full_messages %>                          
+                    <li><%= message %></li>
+                    <br> 
+                 <% end %>
+                </ul>              
+            </div>
+          <% end %>
+
+

@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  pers_cedula: MyString
+  pers_nombre: MyString
+  pers_apellido: MyString
+  pers_direccion: MyString
+  pers: 
+  pers_telefono2: MyString
+  pers_sexo: 
+  pers_fecha_nac: 2013-03-15
+  pers_edad: MyString
+
+two:
+  pers_cedula: MyString
+  pers_nombre: MyString
+  pers_apellido: MyString
+  pers_direccion: MyString
+  pers: 
+  pers_telefono2: MyString
+  pers_sexo: 
+  pers_fecha_nac: 2013-03-15
+  pers_edad: MyString

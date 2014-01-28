@@ -1,0 +1,129 @@
+<h1><center>DISTRIBUTIVO ACADÉMICO</center></h1>
+
+<html>
+  <head>
+    <script>
+      $(document).ready(function() {
+      $('#paralelos').hide();
+      $('#clase_select').change(function() {
+        $.ajax({
+        url: "<%= update_niveles_path%>",
+        data: {
+          clase_id : $('#clase_select').val()
+        },
+        dataType: "script"
+        });
+      });
+      
+      $('#nivel_select').change(function() {
+        $.ajax({
+        url: "<%= update_asignaturas_path%>",
+        data: {
+          nivel_id : $('#nivel_select').val()
+        },
+        dataType: "script"
+        });
+      });
+    });
+    </script>
+</head>
+  PERIODO LECTIVO
+  <%# @periodo.each do |p|%>
+    <table>
+      <tr>
+        <td><%= "Fecha de Inicio: " %><%= @periodo.period_fech_ini %><%= " Fecha de Fin: " %><%= @periodo.period_fech_fin %></td>
+      </tr>
+    </table>
+  <%#end%>
+  
+  <%= form_for @distributo , :url => {:action=>"create"} do |d| %>
+    <table>
+      <tr>
+        <td><%= d.label  "Escoja" %></td>
+        <td><%= collection_select(nil, :clase_id, @clase, :id, :tip_mall_descrip, {:prompt => "Seleccione una Opcion"}, {:id => 'clase_select'}) %></td>
+      </tr>
+
+      <tr>
+        <td><%= d.label "Escoja un nivel" %></td>
+        <td><%= collection_select(nil, :nivel_id, @niveles, :id, :nivel_numero, {:prompt => "Seleccione una Opcion"}, {:id => 'nivel_select'}) %></td>
+      </tr>
+
+      <tr>
+        <td><%= d.label "Escoja un paralelo" %></td>
+        <td>
+          <div id="paralelos">
+            Hola 
+            <%# @cursos.each do |paralelo| %>
+              <%#=check_box_tag "paralelos[]", paralelo.id%><%#=paralelo.cur_paralelo%>
+            <%#end%>
+          </div>
+          
+        </td>
+      </tr>
+
+       
+
+      <tr>
+        <td><%= d.label "Escoja Asignatura" %></td>
+        <td><%= d.collection_select(:asignatura_id, @asignaturas, :id, :asig_nombre, {:prompt => "Seleccione una Opcion"}, {:id => 'asignatura_select'}) %></td>
+      </tr>
+      
+      <tr>        
+      <td> <%=d.label "Asignar Fecha Distributivo "%></td>
+      <td><%=d.text_field :distr_fecha %></td>
+      </tr>      
+    </table>
+
+  
+  
+  
+  <table>  
+      <tr>        
+        <td> <%=d.label "Horario Distributivo "%></td>
+        <td><%=d.label "A "%> <%= text_field_tag :distr_horarioa %></td>
+        <td><%=label_tag "B "%> <%= text_field_tag :distr_horariob %></td>
+      </tr>
+  </table>
+  
+  <br>
+
+    <table class="pretty">
+      <tr>
+        <th><%= sortable "id", "Seleccion" %></th>
+        <th><%= sortable "pers_nombre", "Cedula" %></th>
+        <th><%= sortable "pers_nombre", "Nombre" %></th>
+        <th><%= sortable "pers_apellido", "Apellido" %></th>
+        <th><%= sortable "pers_direccion", "Direccion" %></th>
+        <th><%= sortable "pers_email", "Email" %></th>
+      </tr>
+      <% for usuario in @profesores %>
+        <tr>
+          <td><%= radio_button_tag :profesor, usuario.id %></td>
+          <td><%= usuario.pers_cedula %> </td>
+          <td><%= usuario.pers_nombre %> </td>
+          <td><%= usuario.pers_apellido %> </td>
+          <td><%= usuario.pers_direccion %> </td>
+          <td><%= usuario.pers_email %></td>
+        </tr>
+      <% end %>
+    </table>
+  <br>
+    <center><%=  d.submit "GUARDAR DISTRIBUTIVO" %></center>
+  <%end%>
+  
+  
+   <%= form_tag distributos_new_path, :method => 'get' do %>
+      <%= hidden_field_tag :direction, params[:direction] %>
+      <%= hidden_field_tag :sort, params[:sort] %>
+      <div><p>
+        <center>Filtros por:
+          <p>Nombres<br> Apellidos<br> Cédula</p>
+<%= text_field_tag :search, params[:search] %>
+        <%= submit_tag "Búsqueda", :pers_nombre => nil %></center>
+      </p></div>
+    <% end %> 
+</html>
+
+
+
+<%= link_to "Regresar al Menú Principal", asignaturas_menu_principal_admin_path %>

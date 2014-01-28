@@ -1,0 +1,7 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  tip_mall_descrip: MyString
+
+two:
+  tip_mall_descrip: MyString

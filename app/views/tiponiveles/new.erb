@@ -1,0 +1,20 @@
+<html>
+<body>
+<script language="JavaScript" type="text/javascript" src="ajax.js"></script> 
+  
+<%=form_for @nivele , :url => {:action=>"create"} do |f| %>
+
+
+<div onkeypress="return isNumberKey(event)">   
+<p>
+  <%=f.label "TIPO_NIVEL"%>
+  <%=f.text_field :tip_niv_nombre %>
+</p>
+</div>
+
+<%=  f.submit "GUARDAR" %>
+<%end%>
+
+
+</body>
+</html>

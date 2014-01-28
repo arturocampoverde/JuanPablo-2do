@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  cur_nombre: MyString
+  cur_paralelo: 
+
+two:
+  cur_nombre: MyString
+  cur_paralelo: 

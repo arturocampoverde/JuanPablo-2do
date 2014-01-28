@@ -1,0 +1,14 @@
+<H1><center>LISTADO DE CURSOS</center></H1>
+<table border="3" align="center">           
+<% @cursos.each do |f| %>
+<tr>
+<td><font color ="#3300FF">  NIVEl   --> </font> <%=f.nivel.nivel_numero%> </td>
+<td><font color ="#3300FF">  PARALELO--> </font> <%=f.cur_paralelo%> </td>
+<td><font color ="#3300FF">  SECCION --> </font> <%=f.seccion.secc_nombre%></td>
+<td><font color ="#AA1D1D">  PERIODO LECTIVO INICIO --> </font> <%=f.periodo.period_fech_ini%><font color ="#AA1D1D">  PERIODO LECTIVO FIN --> </font> <%=f.periodo.period_fech_fin%></td>
+<td><font color ="#3300FF">  <%= link_to "EDITAR", edit_paralelo_path(f)%> </font> </td>
+<td><%= link_to "ELIMINAR", f, :confirm => 'ESTAS SEGURISIMO ??', :method => :delete %>
+</tr> 
+ 
+  <%end%>
+</table>

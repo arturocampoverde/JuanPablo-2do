@@ -1,0 +1,14 @@
+<h1>SECCIONES CREADAS EN RUBY ON RAILS!!!</h1>
+<% @seccion.each do |a| %>
+<p>
+<%=a.secc_nombre%>
+<%=a.secc_estado%>
+
+<%= link_to "EDITAR", edit_seccione_path(a) %> 
+<%= link_to "ELIMINAR", a, :confirm => 'ESTAS SEGURISIMO ??', :method => :delete %>
+<%= link_to "MOSTRAR", a %> 
+
+</p>
+<%end%>
+
+  

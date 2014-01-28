@@ -1,0 +1,39 @@
+  <%@matriculas.each do |f| %>
+ <center> <%= f.curso.nivel.nivel_numero %> Nivel    "<%= f.curso.cur_paralelo %>"</center>
+ <table border="3" align="center">
+
+      <tr>
+      <td align="center" colspan="9" height="10" bgcolor="#E2E2E2"><font color ="#4B4A55">NOTAS ACADEMICAS PERTENECIENTES AL ALUMNO</font></td>
+      </tr>
+
+    <tr>
+      <td align="center">Materias</td>
+      <td align="center">Deberes</td>
+      <td align="center">Lecciones</td>
+      <td align="center">Trabajos</td>
+      <td align="center">Aportes</td>
+      <td align="center">Examenes</td>
+      <td align="center">Total</td>
+      <td align="center">Promedio</td>
+      <td align="center">Conducta</td>
+    </tr>
+
+    <%f.calificaciones.each do |n| %>
+
+    <tr>
+      <td align="center"><%= n.asignatura.asig_nombre %></td>
+      <td align="center"><%= n.calif_tarea %></td>
+      <td align="center"><%= n.calif_act_indv %></td>
+      <td align="center"><%= n.calif_act_grup %></td>
+      <td align="center"><%= n.calif_leccion %></td>
+      <td align="center"><%= n.calif_examen %></td>
+      <td align="center"><%= n.calif_total %></td>
+      <td align="center"><%= n.calif_promedio %></td>
+      <td align="center"><%= n.calif_conducta %></td>
+    </tr>
+    <%end%>
+
+    </table>
+    <br/>
+
+  <%end%>

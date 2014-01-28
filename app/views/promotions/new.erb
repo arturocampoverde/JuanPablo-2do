@@ -1,0 +1,43 @@
+<%=form_for @promocione , :url => {:action=>"create"} do |f| %>
+   
+<p>
+  <%=f.label "PROMOCION_DESCRIPCION"%>
+  <%=f.text_field :promo_descrip %>
+</p>
+
+<p>
+  <%=f.label "PROMOCION_DESC_FECHA_INICIAL"%>
+  <%=f.text_field :promo_descrip_fec_ini %>
+</p>
+ 
+
+<p>
+  <%=f.label "PROMOCION_DESC_FECHA_FIN"%>
+  <%=f.text_field :promo_descrip_fech_fin %>
+</p>
+
+<p> <%#= f.radio_button :nivele_id, n.id%> <%#=  n.tip_niv_nombre %></p>
+
+<% @malla.each do |mallota| %>
+  <br>
+<%= f.radio_button :malla_id, mallota.id %>
+  <%= "Nivel: " %>
+  <% mallota.nivels.find(:first) do |nivel| %>
+    <%= nivel.nivel_numero %>
+  <% end %>
+  <%= "Asignaturas: " %>
+  <% mallota.asignaturas.each do |asig| %>
+    <%= asig.asig_nombre %>
+  <% end %>
+  <%= "Clase: " %>
+    <%= mallota.clase.tip_mall_descrip %>
+<%end%>
+
+
+<br>
+<br>
+<br>
+
+
+<%=  f.submit "GUARDAR" %>
+<%end%>

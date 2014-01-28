@@ -1,0 +1,22 @@
+<%=form_for @periodos do |f| %>
+  
+<p>
+  <%=f.label "FECHA DE INICIO"%>
+  <%=f.text_field :period_fech_ini %>
+</p>
+
+
+<p>
+  <%=f.label "FECHA DE FINALIZACIÓN"%>
+  <%=f.text_field :period_fech_fin %>
+</p>
+
+
+<p>
+  <%=f.label "ESTADO PERIODO LECTIVO"%>
+  <%=f.text_field :period_estad_lect %>
+</p>
+
+
+<%=  f.submit "GUARDAR" %>
+<%end%>

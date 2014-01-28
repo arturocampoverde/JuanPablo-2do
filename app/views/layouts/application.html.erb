@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AuthApp</title>
+  
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  
+   
+  
+
+<font color ="#060401">
+<b>
+  
+<% flash.each do |name, msg| %>
+<%= content_tag :div, msg, :id => "flash_#{name}" %>
+</b>
+</font>
+
+<% end %>
+
+<%= yield %>
+
+  
+</body>
+</html>

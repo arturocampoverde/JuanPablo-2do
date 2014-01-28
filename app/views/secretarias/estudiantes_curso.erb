@@ -1,0 +1,41 @@
+  <html>
+    <head>
+      <script type="text/javascript" src="../javascripts/jquery-latest.js"></script> 
+      <script type="text/javascript" src="../javascripts/jquery.tablesorter.js"></script>
+      <script type="text/javascript" src="../javascripts/myTable.js"></script>
+    </head>  
+
+
+
+<center><h1>NOMINA DE ESTUDIANTES</h1></center>
+ <table align="center" id="myTable" class="tablesorter">
+   
+   <thead> 
+    <tr bgcolor="#03EB12">
+    <th><%= link_to "ALUMNOS", "ALUMNOS"%></th>
+    <th><%= link_to "NIVEL", "NIVEL"%></th>
+ 
+    </tr>
+  </thead>
+  
+  <tbody> 
+  <tr>
+   
+   
+  <%@estudiantes.each do |est|%>
+ 
+   <td>
+    <%= est.pers_nombre %>
+    <%= est.pers_apellido %>
+    <%#= est.matriculas.curso.nivel.nivel_numero %>
+   </td>
+  </tr>
+<%end%>
+
+ <input type=button name=print value="Imprimir" onClick="window.print()"><br><br>    
+ </tbody>
+ </table>
+
+<br>
+<br>
+

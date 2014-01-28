@@ -1,0 +1,58 @@
+<center>FORMULARIO DE CREACIÓN DE CURSOS</center>
+
+<%=form_for @curso , :url => {:action=>"create"} do |f| %>
+  
+  <font color ="#0400E4"  FACE="arial">INGRESE PARALELO</font>
+<table>
+<font color ="#2A6913"   FACE="arial">  
+  <td><%=f.label "PARALELO"%> <%=f.text_field :cur_paralelo %></td>
+  <td><%=f.label "CAPACIDAD"%> <%=f.text_field :cur_capac %></td>
+</font>
+</table>
+<p></p>
+        <FONT color ="#0400E4"  FACE="arial">NIVEL</FONT>
+          <table border="1" align="justify" >
+           <% @nivel.each do |nive| %>         
+          <FONT color ="#2A6913"  FACE="arial">  
+            <tr><td> <%=f.radio_button :nivel_id, nive.id%>  <%= "Nivel: " %> <%=  nive.nivel_numero %>-<%=  nive.nivele.tip_niv_nombre %></td></tr>
+          </FONT>
+        <%end%> 
+          </table>
+
+
+
+<p></p>
+        <FONT color ="#0400E4" FACE="arial">SECCION</FONT>
+          <table border="1" align="justify" >
+           <% @seccion.each do |secc| %>         
+          <FONT color ="#2A6913"  FACE="arial">          
+            <td> <%=f.radio_button :seccion_id, secc.id%>  <%= "Sección: " %> <%=  secc.secc_nombre %></td></td>        
+          </FONT>
+        <%end%>
+          </table> 
+ 
+
+
+
+<p></p>
+        <legend><FONT color ="#0400E4"  FACE="arial">PERIODO LECTIVO</FONT></legend>
+          <table border="1" align="justify" >
+            <FONT color ="#2A6913"  FACE="arial">            
+            <td> <%=f.radio_button :periodo_id, @periodo.id%>  <%= "Periodo Lectivo: " %> "INICIA"-- <%=  @periodo.period_fech_ini %> ------ "FINALIZA" -- <%=  @periodo.period_fech_fin %></td></td>
+          </FONT>
+          </table>        
+<center>
+<%=  f.submit "GUARDAR" %>
+  <% if @curso.errors.any? %>
+
+            <div align="left">             
+                <ul><H1><font SIZE="4" FACE="arial" color ="#BF0000"> ERRORES</font>      </H1>      
+                  <% for message in @curso.errors.full_messages %>                          
+                    <li><%= message %></li>
+                    <br> 
+                 <% end %>
+                </ul>              
+            </div>
+          <% end %>
+</center>
+<%end%>

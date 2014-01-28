@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  est_nivel: MyString
+  est_instituto: MyString
+  est_titulos: MyString
+
+two:
+  est_nivel: MyString
+  est_instituto: MyString
+  est_titulos: MyString

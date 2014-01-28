@@ -1,0 +1,15 @@
+<%=form_for @asignatura , :url => {:action=>"create"} do |f| %>
+   
+<p>
+  <%=f.label "NOMBRE"%>
+  <%=f.text_field :asig_nombre %>
+</p>
+ 
+
+<p>
+  <%=f.label "ABREVIATURA"%>
+  <%=f.text_field :asig_abreviat %>
+</p>
+
+<%=  f.submit "GUARDAR" %>
+<%end%>

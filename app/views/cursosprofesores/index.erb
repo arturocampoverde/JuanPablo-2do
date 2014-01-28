@@ -1,0 +1,16 @@
+<H1><center><font color="#0932FF">VER NOMINA DE ESTUDIANTES QUE PERTENECE A CADA CURSO</font></center></H1>
+<br>
+ 
+
+  <% @distributivo.each do |f| %>
+<table>
+  <td><font color="#C50000">NIVEL</font><%= f.curso.nivel.nivel_numero %></td>
+  <td><%= f.curso.nivel.nivele.tip_niv_nombre %></td>
+  <td><font color="#C50000">PARALELO</font> <%= f.curso.cur_paralelo %></td>
+  <td><%= f.asignatura.asig_nombre %></td>
+
+  <td><%= link_to "VER CURSO", alumnos_matriculados_path(:distr_id => f.id), {:style => 'color: #C31B1B'} %></td>
+  <td><%= link_to "EDITAR", edit_alumnos_matriculados_path(:distr_id => f.id), {:style => 'color: #1E29FF'} %></td>
+  <br/>
+</table>
+<%end%>

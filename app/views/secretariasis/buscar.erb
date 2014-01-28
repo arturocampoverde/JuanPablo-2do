@@ -1,0 +1,45 @@
+<h1><center>BUSCAR ESTUDIANTE</center></h1>
+<%= form_tag result_buscar_path, :method => 'get' do %>
+<%= "Ingrese Cedula: " %><%= text_field_tag :cedula_estudiante, nil, :class => "text_cedula_estudiante", :id => "text_cedula_estudiante", :style => "width:92px" %>
+<%= submit_tag "Buscar" %>
+<%end%>
+<br>
+<%if @estudiante.nil? == false%>
+<br>
+  CEDULA <%= @estudiante.pers_cedula %><br>
+  NOMBRES <%= @estudiante.pers_nombre %><br>
+  APELLIDOS <%= @estudiante.pers_apellido %><br>
+  DIRECCION <%= @estudiante.pers_direccion %><br>
+  TELEFONO1 <%= @estudiante.pers_telefono1 %><br>
+  TELEFONO2 <%= @estudiante.pers_telefono2 %><br>
+  CORREO ELECTRONICO <%= @estudiante.pers_email %>
+<%end%>
+<br/>
+
+<%if @matricula.nil? == false%>
+<br>
+  CURSO: <%= @matricula.curso.nivel.nivel_numero %><br> 
+  NIVEL: <%= @matricula.curso.nivel.nivele.tip_niv_nombre %><br>
+  PARALELO: <%= @matricula.curso.cur_paralelo %><br>
+  <%= link_to "EDITAR", edit_matr_alum_path(:estudiante=>@estudiante.id) %><br/>
+<%end%>
+<br/>
+
+<%if @representante.nil? == false%>
+<br>
+  CEDULA <%= @representante.pers_cedula %><br>
+  NOMBRES <%= @representante.pers_nombre %><br>
+  APELLIDOS <%= @representante.pers_apellido %><br>
+  DIRECCION <%= @representante.pers_direccion %><br>
+  TELEFONO1 <%= @representante.pers_telefono1 %><br>
+  TELEFONO2 <%= @representante.pers_telefono2 %><br>
+<%end%>
+
+  
+<%if @estudiante.nil? == false%>
+  <%if @usuario.usu_estado!='A'%>
+    <%= link_to "Activar Usuario", activar_path(:estudiante=>@estudiante.id)%><br></br>
+  <%end%>
+<%=link_to "VALIDAR HOJA DE MATRICULA", validar_path(:estudiante=>@estudiante.id)%>
+
+<%end%>

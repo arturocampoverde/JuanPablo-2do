@@ -1,0 +1,47 @@
+<html>
+    <head>
+      <script type="text/javascript" src="/javascript/jquery-latest.js"></script> 
+      <script type="text/javascript" src="/javascript/jquery.tablesorter.js"></script>
+    </head>  
+
+
+
+<%if @periodos.nil?%>
+<h1><center> "DEBE INGRESAR LOS VALORES CORRECTOS PARA PROCEDER A LA BUSQUEDA" </center></h1>
+<%else%>
+
+<%@periodos.each do |p| %>
+    <tr>
+      <h1><center>AÑO LECTIVO DESDE <font color ="#F72525"><%= p.period_fech_ini %></font> HASTA <font color ="#F72525"><%= p.period_fech_fin %></font></center></h1></td>
+    </tr>
+
+<table align="center" id="myTable" class="tablesorter"> 
+        
+  <thead> 
+    <tr bgcolor="#03EB12">
+      <th><%= link_to "NIVEL", "NIVEL" %></th>
+      <th><%= link_to "PARALELO", "PARALELO"%></th>
+      <th><%= link_to "ACCIONES", "ACCIONES"%></th>  
+    </tr>
+  </thead> 
+    
+    
+    <tbody> 
+    <tr>
+    <%p.cursos.each do |c|%>
+      
+        <td align ="center"><%= c.nivel.nivel_numero%> </td>
+        <td align ="center"><%= c.cur_paralelo%></td>
+        <td align ="center"><%= link_to "VISUALIZAR", estudiantes_estado_path(:curso_id => c.id) %></td>
+      </tr>
+    <%end%>
+  <%end%>
+      
+<input type=button name=print value="Imprimir" onClick="window.print()"><br><br>      
+       </tbody>
+</table>
+
+
+<%end%>
+
+</html>

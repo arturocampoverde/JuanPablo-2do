@@ -1,0 +1,29 @@
+<html>
+<body>  
+<script language="JavaScript" type="text/javascript" src="ajax.js"></script>
+
+      
+
+  
+  
+<%=form_for @seccion , :url => {:action=>"create"} do |c| %>
+
+  
+<div onkeypress="return isNumberKey(event)">   
+<p>
+  <%=c.label "NOMBRE"%>
+  <%=c.text_field :secc_nombre %>
+</p>
+</div>
+
+<p>
+  <%=c.label "ESTADO"%>
+  <%=c.text_field :secc_estado %>
+</p>
+
+<%=c.submit "GUARDAR" %>
+<%end%>
+
+
+</body>
+</html>

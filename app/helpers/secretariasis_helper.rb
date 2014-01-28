@@ -1,0 +1,2 @@
+module SecretariasisHelper
+end

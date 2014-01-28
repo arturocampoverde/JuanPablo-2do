@@ -1,0 +1,43 @@
+<center><H1>FORMULARIO DE CREACIÓN DE MALLAS CURRICULARES</H1></center>
+ 
+<%=form_for @malla , :url => {:action=>"create"} do |f| %> 
+<p>ESCOJA EL TIPO DE MALLA</p>
+<table> 
+  <% @clase.each do |clase| %>
+<tr> 
+<td> <%= radio_button_tag :clase, clase.id %> <%= clase.tip_mall_descrip %></td></td>
+</tr>
+<% end %>
+</table>
+<br>
+
+<p>INGRESE FECHA DE CREACION DE MALLA</p>
+<table border="3" align="justify">
+<td><%= "Fecha de inicio " %><%= text_field_tag :malla_fech_inic, nil   %></td>
+<td><%= "Fecha de fin " %><%= text_field_tag :malla_fech_fin, nil   %><br/></td>
+</table>
+ 
+<br>
+<p>ESCOJA EL CURSO O NIVEL</p>
+<table> 
+<% @nivel.each do |niv| %>
+  
+<td> <%= radio_button_tag :nivel, niv.id %> <%= niv.nivel_numero %>-<%=  niv.nivele.tip_niv_nombre %></td>
+
+<%end%>
+</table>
+
+<br>
+
+ <p>ESCOJA LA ASIGNATURA <br></p>
+  <table border="3" align="justify" >
+   <td> <% @asignatura.each do |asignatura| %>
+      
+        
+         <%=check_box_tag "asignaturas[]", asignatura.id%><%=asignatura.asig_nombre%>
+      
+    <%end%>
+   </td>  
+  </table>
+ <%= submit_tag "GUARDAR" %>
+<%end%>

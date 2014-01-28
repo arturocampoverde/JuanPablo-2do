@@ -1,0 +1,15 @@
+<h1>PERIODO LECTIVO CREADO EN RUBY ON RAILS!!!</h1>
+<% @periodo.each do |f| %>
+<p>
+<%=f.period_fech_ini %>
+<%=f.period_fech_fin %>  
+<%=f.period_estad_lect %>
+
+<%= link_to "EDITAR", edit_lectivo_path(f) %>   
+<%= link_to "MOSTRAR", f %>  
+<%= link_to "ELIMINAR", f, :confirm => 'ESTAS SEGURISIMO ??', :method => :delete %>
+
+</p>
+<%end%>
+
+  

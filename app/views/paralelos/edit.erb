@@ -1,0 +1,73 @@
+<h1>EDITAR PARALELOS</h1>
+
+<%=form_for @cursos do |f| %>
+
+ <fieldset class="step">
+  <legend><FONT color ="#0400E4"  SIZE="2" FACE="arial">INGRESE PARALELO</FONT></legend>
+
+<FONT color ="#2A6913"  SIZE="2" FACE="arial">
+  <%=f.label "PARALELO"%>
+  <%=f.text_field :cur_paralelo %><br/>
+  <%=f.label "CAPACIDAD"%>
+  <%=f.text_field :cur_capac %><br/>
+</FONT>
+</fieldset>
+<br>
+
+
+<fieldset class="step">
+        <legend><FONT color ="#0400E4"  SIZE="2" FACE="arial">NIVEL</FONT></legend>
+          <table border="1" align="justify" >
+            <tr>
+           <% @nivel.each do |nive| %>
+          <FONT color ="#2A6913"  SIZE="2" FACE="arial">
+            <td> <%=f.radio_button :nivel_id, nive.id%>  <%= "Nivel: " %> <%=  nive.nivel_numero %>-<%=  nive.nivele.tip_niv_nombre %></td>
+          </FONT>
+        <%end%>
+              </tr>
+          </table>
+</fieldset>
+
+
+
+<br>
+<fieldset class="step">
+        <legend><FONT color ="#0400E4"  SIZE="2" FACE="arial">SECCION</FONT></legend>
+          <table border="1" align="center" >
+           <% @seccion.each do |secc| %>
+          <FONT color ="#2A6913"  SIZE="2" FACE="arial">
+            <td> <%=f.radio_button :seccion_id, secc.id%>  <%= "Sección: " %> <%=  secc.secc_nombre %></td></td>
+          </FONT>
+        <%end%>
+          </table>
+</fieldset>
+
+
+
+
+<br>
+<fieldset class="step">
+        <legend><FONT color ="#0400E4"  SIZE="2" FACE="arial">PERIODO LECTIVO</FONT></legend>
+          <table border="1" align="center" >
+           <% @periodo.each do |period| %>
+          <FONT color ="#2A6913"  SIZE="2" FACE="arial">
+            <td> <%=f.radio_button :periodo_id, period.id%>  <%= "Periodo Lectivo: " %> "INICIA"-- <%=  period.period_fech_ini %> ------ "FINALIZA" -- <%=  period.period_fech_fin %></td></td>
+          </FONT>
+        <%end%>
+          </table>
+</fieldset>
+<center>
+<%=  f.submit "GUARDAR" %>
+  <% if @cursos.errors.any? %>
+
+            <div align="left">
+                <ul><H1><font SIZE="4" FACE="arial" color ="#BF0000"> ERRORES</font>      </H1>
+                  <% for message in @cursos.errors.full_messages %>
+                    <li><%= message %></li>
+                    <br>
+                 <% end %>
+                </ul>
+            </div>
+          <% end %>
+</center>
+<%end%>

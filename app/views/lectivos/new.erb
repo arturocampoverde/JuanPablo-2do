@@ -1,0 +1,29 @@
+<html>
+<body>  
+<script language="JavaScript" type="text/javascript" src="ajax.js"></script>
+
+<%=form_for @periodo , :url => {:action=>"create"} do |f| %>
+
+
+<div onkeypress="return ValidNum(event)">   
+<p>
+  <%=f.label "FECHA DE INICIO"%>
+  <%=f.text_field :period_fech_ini %>
+</p>
+
+<p>
+  <%=f.label "FECHA DE FINALIZACIÓN"%>
+  <%=f.text_field :period_fech_fin %>
+</p>
+</div>
+
+<p>
+  <%=f.label "ESTADO PERIODO LECTIVO"%>
+  <%=f.text_field :period_estad_lect %>
+</p>
+
+<%=  f.submit "GUARDAR" %>
+<%end%>
+
+</body>
+</html>

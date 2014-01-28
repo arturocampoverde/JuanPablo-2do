@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  secc_nombre: MyString
+  secc_estado: 
+
+two:
+  secc_nombre: MyString
+  secc_estado: 

@@ -1,0 +1,12 @@
+<h1>TIPOS DE MALLAS CREADAS EN RUBY ON RAILS!!!</h1>
+<% @clase.each do |f| %>
+<p>
+<%=f.tip_mall_descrip %>
+<%= link_to "EDITAR", edit_tipomalla_path(f) %>   
+<%= link_to "MOSTRAR", f %>  
+<%= link_to "ELIMINAR", f, :confirm => 'ESTAS SEGURISIMO ??', :method => :delete %>
+
+</p>
+<%end%>
+
+   

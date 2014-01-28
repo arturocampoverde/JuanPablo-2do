@@ -1,0 +1,47 @@
+<center><H1><font color ="#0932FF"> HORARIO ACADÉMICO DE CLASES </font></H1></center>
+
+<html>
+  <head>
+    <title>New Document</title>
+    <meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
+    <style>
+#Contenedor1{
+	float: left;
+	width: 4%;
+  }
+#Contenedor2{
+	float: left;
+	width: 10%;
+  }
+#Contenedor3{
+	float: right;
+	width: 17%;
+  }
+    </style>
+  </head>
+  <body>
+       
+    <div id="Contenedor2">
+    <table border="1" width="698px">
+        <%@distributivo.each do |f| %>
+          <tr>
+            <td><font color ="#3300FF"> </font><%=f.curso.nivel.nivel_numero%></td>
+            <td><font color ="#3300FF"> </font><%=f.curso.cur_paralelo%></td>
+            <td><font color ="#3300FF"> </font><%=f.asignatura.asig_nombre%></td>
+            <td><font color ="#3300FF"> </font><%=f.distr_horarioa%></td>
+          </tr>
+        <%end%>
+    </table>
+    </div>
+    
+  </body>
+</html> 
+
+
+
+
+
+<%#*<td><font color ="#3300FF">PROFESOR--></font><%=f.persona.pers_nombre%> 
+<%#=f.persona.pers_apellido%>
+<%#*<td><font color ="#3300FF">ASIGNATURA--></font><%=f.asignatura.asig_nombre%>
+<%#*<td><%=f.nivele.tip_niv_nombre%>

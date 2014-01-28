@@ -1,0 +1,27 @@
+$('#asignatura_select').html("<%= escape_javascript(options_for_select(@asignaturas)) %>");
+var parentElement = document.getElementById('paralelos');
+while ( parentElement.firstChild ) parentElement.removeChild( parentElement.firstChild );
+//var check_value = new Array()
+var i = 0
+<%@cursos.each do |c|%>
+  
+
+
+  var newCheckBox = document.createElement('input');
+  newCheckBox.type = 'checkbox';
+  newCheckBox.id = 'check_' + <%= c.id%>; // need unique Ids!
+  //newCheckBox.value = check_value[<%= c.id%>];
+  newCheckBox.name = 'cursos_ids[]';
+  newCheckBox.value = <%= c.id%>;
+
+  var newLabel = document.createElement('label');
+  newLabel.htmlFor = 'check_' + <%= c.id%>;
+  newLabel.appendChild(document.createTextNode('<%= c.cur_paralelo%>'));
+
+  parentElement.appendChild(newCheckBox);
+  parentElement.appendChild(newLabel);
+  
+<%end%>
+
+$('#paralelos').show();
+

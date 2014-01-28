@@ -1,0 +1,84 @@
+<%if @distributivo.persona_id == current_user.persona_id%>
+
+<h2><center>NÓMINA DE ESTUDIANTES</center></h2>
+<html>
+<body>
+  <br/>
+   
+ <%= "Asignatura: " + @distributivo.asignatura.asig_nombre %>
+<br/>
+ <%= "Docente: " + @distributivo.persona.pers_nombre %> <%= @distributivo.persona.pers_apellido %>
+<br/>
+
+Nivel: <%= @distributivo.curso.nivel.nivel_numero%>  Paralelo: <%= @distributivo.curso.cur_paralelo%>
+  <table>
+
+    <%=  form_tag cursosprofesores_path do%>
+      <%@alumnos.each do |a|%>
+        <tr align="justify">
+          <td><%= label_tag a.pers_nombre + " " + a.pers_apellido, nil%></td>
+          
+        </tr>
+      <%end%>
+        <%@matricula.each do |m| %>
+          <%= hidden_field_tag "matricula_ids[]", m.id %>
+        <%end%>
+        <%#@asignatura.each do |ass| %>
+          <%= hidden_field_tag :asignatura_id, @distributivo.asignatura.id %>
+        <%#end%>   
+       <%= hidden_field_tag :contador_alumnos, @alumnos_count %>
+      <%= hidden_field_tag :distributivo_id, @distributivo.id %>
+    <%end%>
+  </table>
+<%#= @alumnos_count %>
+
+
+<div align="center">
+  <br>
+  <br>
+  <br>
+  <br>
+ -------------------------------
+     <br>PROFESOR
+</div>
+
+<div align="center">
+  <br>
+  <br>
+  <br>
+ -------------------------------
+     <br>VICERRECTOR ACADÉMICO
+</div>
+</body>
+</html><br>
+<div align="center"><input type=button name=print value="Imprimir Lista de Estudiantes" onClick="window.print()">
+
+<%else%>
+<!DOCTYPE html>
+<html> 
+<head>
+  <title>The page you were looking for doesn't exist (404)</title>
+  <style type="text/css">
+    body { background-color: #fff; color: #666; text-align: center; font-family: arial, sans-serif; }
+    div.dialog {
+      width: 25em;
+      padding: 0 4em;
+      margin: 4em auto 0 auto;
+      border: 1px solid #ccc;
+      border-right-color: #999;
+      border-bottom-color: #999;
+    }
+    h1 { font-size: 120%; color: #f00; line-height: 1.5em; }
+  </style>
+</head>
+
+<body>
+  <!-- This file lives in public/404.html -->
+  <div class="dialog">
+    <h1>LA PÁGINA A LA QUE QUIERES ACCEDER, NO EXISTE.</h1>
+    <p>ES POSIBLE QUE LA PÁGINA HAYA SIDO MOVIDA</p>
+  </div>
+</body>
+</html>
+
+<%end%>

@@ -1,0 +1,15 @@
+<%=form_for @seccions do |a| %>
+  
+<p>
+  <%=a.label "NOMBRE"%>
+  <%=a.text_field :secc_nombre %>
+</p>
+
+
+<p>
+  <%=a.label "ESTADO"%>
+  <%=a.text_field :secc_estado %>
+</p>
+
+<%=  a.submit "GUARDAR" %>
+<%end%>

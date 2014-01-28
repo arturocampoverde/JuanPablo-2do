@@ -1,0 +1,23 @@
+<%=form_for @nivel , :url => {:action=>"create"} do |f| %>
+   
+<p>
+  <%=f.label "NIVEL"%>
+  <%=f.text_field :nivel_numero %>
+</p>
+
+ 
+<p>
+  <%=f.label "DESCRIPCION"%>
+  <%=f.text_field :nivel_descrip %>
+</p>
+
+<table>
+ <% @nivele.each do |n| %>
+<tr>
+  
+  <td> <%= f.radio_button :nivele_id, n.id%> <%=  n.tip_niv_nombre %></td>
+</tr>
+ <% end %>
+</table>
+<%=  f.submit "GUARDAR" %>
+<%end%>

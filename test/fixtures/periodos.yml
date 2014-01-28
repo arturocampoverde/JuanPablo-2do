@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  period_fech_ini: 2013-03-15
+  period_fech_fin: 2013-03-15
+  period_estad_lect: 
+
+two:
+  period_fech_ini: 2013-03-15
+  period_fech_fin: 2013-03-15
+  period_estad_lect: 

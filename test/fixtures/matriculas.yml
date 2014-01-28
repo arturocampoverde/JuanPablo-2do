@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  matr_fech: 2013-03-15
+  matr_folio: 
+  matr_estado: 
+
+two:
+  matr_fech: 2013-03-15
+  matr_folio: 
+  matr_estado: 

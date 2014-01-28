@@ -1,0 +1,12 @@
+<table border="3" align="justify" >     
+<p>ASIGNATURAS ACADÉMICAS </p>  
+<% @asignatura.each do |f| %>
+<tr> 
+<td><font color ="#3300FF"><%="Asignatura" %></font>
+<td><%=f.asig_nombre %>
+<td><font color ="#3300FF"><%="Abreviatura" %></font>
+<td><%=f.asig_abreviat %>
+<td><%= link_to "EDITAR", edit_asignatura_path(f) %>     
+<td><%= link_to "ELIMINAR", f, :confirm => 'ESTAS SEGURISIMO ??', :method => :delete %>  
+<%end%>
+  </table>

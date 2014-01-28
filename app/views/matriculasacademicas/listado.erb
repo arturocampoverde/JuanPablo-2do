@@ -1,0 +1,16 @@
+<%= "Cedula: "%><%= current_user.persona.pers_cedula %><br/>
+<%= "Nombre: "%><%= current_user.persona.pers_nombre%><br/>
+<%= "Apellido: "%><%= current_user.persona.pers_apellido%><br/>
+<%= "Direccion: "%><%= current_user.persona.pers_direccion%><br/>
+<%= "Convencional: "%><%= current_user.persona.pers_telefono1%><br/>
+<%= "Celular: "%><%= current_user.persona.pers_telefono2%><br/>
+<%= "E-mail: "%><%= current_user.persona.pers_email%><br/>
+<%#= current_user.persona.pers_%><br/>
+<%@matriculas.each do |m|%>
+  <%= "Nivel: "%><%= m.curso.nivel.nivel_numero %><br/>
+  <%= "Paralelo: "%><%= m.curso.cur_paralelo %><br/>
+  <%= "Ciclo: "%><%= m.curso.nivel.nivele.tip_niv_nombre %><br/>
+  <%= "Seccion: "%><%= m.curso.seccion.secc_nombre %><br/>
+  <%= "Periodo: "%><%= m.curso.periodo.period_fech_ini %> <%= " - "%><%= m.curso.periodo.period_fech_fin %><br/>
+  <br/>
+<%end%>

@@ -1,0 +1,33 @@
+<html>
+<body>  
+<script language="JavaScript" type="text/javascript" src="ajax.js"></script>
+
+
+<%=form_for @clase , :url => {:action=>"create"} do |f| %>
+
+
+<div onkeypress="return isNumberKey(event)">  
+<p>
+  <%=f.label "NOMBRE_TIPO_MALLA"%>
+  <%=f.text_field :tip_mall_descrip %>
+</p>
+</div>
+ 
+
+<%=  f.submit "GUARDAR" %>
+
+
+        <% if @clase.errors.any? %>
+
+            <div align="left">             
+                <ul><H1><font SIZE="4" FACE="arial" color ="#BF0000"> ERRORES</font>      </H1>      
+                  <% for message in @clase.errors.full_messages %>                          
+                    <li><%= message %></li>
+                    <br> 
+                 <% end %>
+                </ul>              
+            </div>
+          <% end %>
+<%end%>
+</body>
+</html>

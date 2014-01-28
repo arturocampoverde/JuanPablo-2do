@@ -1,0 +1,52 @@
+//PARA VER MEJOR EL MENU ADMINISTRADOR, HAY QUE MODIFICAR A TODOS EL MISMO VALOR, Y AHI BASTA CON TRABAJAR CON EL ULTIMO (TIPO NIVELES). 
+
+ 
+
+#navidad li a {
+	display:block;
+	width:103px;
+	padding:6px 5px;
+	text-decoration:none;
+	text-align:center;
+	font-size:12px;    
+	color:#00EE67;
+	background-color:#000000;
+        border-left:2px solid #D200EE;
+        border-right:2px solid #05DAEE;        
+            }
+
+
+        ul  {
+            float: left;
+            list-style-type: none;
+            padding: 0; 
+            /* AÑADIMOS */
+            position: relative; 
+            left:29%;
+            }
+        li  {
+            float: left;
+            /* AÑADIMOS */
+            position: relative; 
+            right: 28%;
+            }
+
+#navidad li ul {
+display:none;
+position:absolute;
+min-width:120px;
+            }
+ 
+ 
+
+//APUNTA EL MOUSE Y SE VEN LOS SUBMENUS
+#navidad li:hover > ul {
+display:block;
+                    }
+
+#navidad li a:hover  {
+	color:#FFFFFF;
+	background-color:#001AE1;
+                  }
+
+
